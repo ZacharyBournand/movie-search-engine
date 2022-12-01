@@ -1,150 +1,334 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 #include <string>
-#include "MovieInformation.h"
+#include "LinkedListMovie.h"
+#include "NodeMovie.h"
+#include "LinkedListUserRating.h"
+#include "NodeUserRating.h"
 using namespace std;
 
 int main()
 {
-    ifstream myFile;
-    myFile.open("movie_data.csv"); 
+    // Create an instance of the linked list that contains movies and information associated to them
+    LinkedListMovie movies;
 
+    string DirectorName;
+    int Duration;
+    string Actor2Name;
+    string Genres;
+    string Actor1Name;
+    string MovieTitle;
+    int NumVotedUsers;
+    string Actor3Name;
+    string MovieImdbLink;
+    int NumUserForReviews;
+    string Language;
+    string Country;
+    int TitleYear;
+    double ImdbScore;
+    int Id;
+    double NorthAmericaUsersScore;
+    double SouthAmericaUsersScore;
+    double EuropeUsersScore;
+    double AsiaUsersScore;
+    double AfricaUsersScore;
+    double AustraliaUsersScore;
+
+    ifstream myFile;
+    // Open the CSV file containing the data
+    myFile.open("movie_data.csv");
+    int counter = 0;
+
+    // If the program is unable to open the CSV file, output an error message
     if (myFile.fail()) {
         cout << "Fail" << endl;
     }
 
-    vector<MovieInformation> movies;
-
     string line = "";
 
     while (getline(myFile, line)) {
-        stringstream inputStream(line);
-
-        string director_name;
-        int duration;
-        string actor_2_name;
-        string genres;
-        string actor_1_name;
-        string movie_title;
-        int num_voted_users;
-        string actor_3_name;
-        string movie_imdb_link;
-        int num_user_for_reviews;
-        string language;
-        string country;
-        int title_year;
-        double imdb_score;
-        int id;
-        int north_america_users_score;
-        int south_america_users_score;
-        int europe_users_score;
-        int asia_users_score;
-        int africa_users_score;
-        int australia_users_score;
         string temporaryString;
 
-        // Get the director_name
-        getline(inputStream, director_name, ',');
-        // Get the duration
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        duration = atoi(temporaryString.c_str());
-        // Get the actor_2_name
-        getline(inputStream, actor_2_name, ',');
-        // Get the genres
-        getline(inputStream, genres, ',');
-        // Get the actor_1_name
-        getline(inputStream, actor_1_name, ',');
-        // Get the movie_title
-        getline(inputStream, movie_title, ',');
-        // Get the num_voted_users
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        num_voted_users = atoi(temporaryString.c_str());
-        // Get the actor_3_name
-        getline(inputStream, actor_3_name, ',');
-        // Get the movie_imdb_link
-        getline(inputStream, movie_imdb_link, ',');
-        // Get the num_user_for_reviews
-        temporaryString = ""; 
-        getline(inputStream, temporaryString, ',');
-        num_user_for_reviews = atoi(temporaryString.c_str());
-        // Get the language
-        getline(inputStream, language, ',');
-        // Get the country
-        getline(inputStream, country, ',');
-        // Get the title_year
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        title_year = atoi(temporaryString.c_str());
-        // Get the imdb_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        imdb_score = atof(temporaryString.c_str());
-        // Get the id
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        id = atoi(temporaryString.c_str());
-        // Get the north_america_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        north_america_users_score = atoi(temporaryString.c_str());
-        // Get the south_america_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        south_america_users_score = atoi(temporaryString.c_str());
-        // Get the europe_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        europe_users_score = atoi(temporaryString.c_str());
-        // Get the asia_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        asia_users_score = atoi(temporaryString.c_str());
-        // Get the africa_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        africa_users_score = atoi(temporaryString.c_str());
-        // Get the australia_users_score
-        temporaryString = "";
-        getline(inputStream, temporaryString, ',');
-        australia_users_score = atoi(temporaryString.c_str());
+        if (counter == 0) {
+            getline(myFile, temporaryString);
+            counter = 1;
+        }
+        else {
+            stringstream inputStream(line);
 
-        MovieInformation movie(
-            director_name,
-            duration,
-            actor_2_name,
-            genres,
-            actor_1_name,
-            movie_title,
-            num_voted_users,
-            actor_3_name,
-            movie_imdb_link,
-            num_user_for_reviews,
-            language,
-            country,
-            title_year,
-            imdb_score,
-            id,
-            north_america_users_score,
-            south_america_users_score,
-            europe_users_score,
-            asia_users_score,
-            africa_users_score,
-            australia_users_score
-        );
+            // Get the name of the movie's director
+            getline(inputStream, DirectorName, ',');
+            // Get the duration
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            Duration = atoi(temporaryString.c_str());
+            // Get the 2nd actor's name
+            getline(inputStream, Actor2Name, ',');
+            // Get the movie's genre
+            getline(inputStream, Genres, ',');
+            // Get the 1st actor's name
+            getline(inputStream, Actor1Name, ',');
+            // Get the movie title
+            getline(inputStream, MovieTitle, ',');
+            // Get the number of users who voted
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            NumVotedUsers = atoi(temporaryString.c_str());
+            // Get the 3rd actor's name
+            getline(inputStream, Actor3Name, ',');
+            // Get the link to the movie's IMDb page
+            getline(inputStream, MovieImdbLink, ',');
+            // Get the movie's number of reviews
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            NumUserForReviews = atoi(temporaryString.c_str());
+            // Get the language
+            getline(inputStream, Language, ',');
+            // Get the country of origin
+            getline(inputStream, Country, ',');
+            // Get the movie's release date (in year)
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            TitleYear = atoi(temporaryString.c_str());
+            // Get the movie's IMDb score
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            ImdbScore = atof(temporaryString.c_str());
+            // Get its ID number
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            Id = atoi(temporaryString.c_str());
+            // Get the movie's rating in North America
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            NorthAmericaUsersScore = atof(temporaryString.c_str());
+            // Get the movie's rating in South America
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            SouthAmericaUsersScore = atof(temporaryString.c_str());
+            // Get the movie's rating in Europe
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            EuropeUsersScore = atof(temporaryString.c_str());
+            // Get the movie's rating in Asia
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            AsiaUsersScore = atof(temporaryString.c_str());
+            // Get the movie's rating in Africa
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            AfricaUsersScore = atof(temporaryString.c_str());
+            // Get the movie's rating in Australia
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            AustraliaUsersScore = atof(temporaryString.c_str());
 
-        movies.push_back(movie);
+            // Insert the movie's information into the linked list 'movies'
+            movies.insert(
+                DirectorName,
+                Duration,
+                Actor2Name,
+                Genres,
+                Actor1Name,
+                MovieTitle,
+                NumVotedUsers,
+                Actor3Name,
+                MovieImdbLink,
+                NumUserForReviews,
+                Language,
+                Country,
+                TitleYear,
+                ImdbScore,
+                Id,
+                NorthAmericaUsersScore,
+                SouthAmericaUsersScore,
+                EuropeUsersScore,
+                AsiaUsersScore,
+                AfricaUsersScore,
+                AustraliaUsersScore
+            );
 
-        line = "";
+            line = "";
+        }
     }
 
-    for (auto movie : movies) {
-        cout << endl;
-        movie.display();
+
+    // Create an instance of the linked list that contains user ratings of movies
+    LinkedListUserRating userRating;
+
+    int UserId;
+    string MovieName;
+    double Rating;
+
+    ifstream myFile2;
+    // Open the CSV file containing the data
+    myFile2.open("ratings.csv");
+    int counter2 = 0;
+
+    // If the program is unable to open the CSV file, output an error message
+    if (myFile2.fail()) {
+        cout << "Fail" << endl;
     }
 
-    return 0;
+    string line2 = "";
+
+    while (getline(myFile2, line2)) {
+        string temporaryString;
+
+        if (counter2 == 0) {
+            getline(myFile2, temporaryString);
+            counter2 = 1;
+        }
+        else {
+            stringstream inputStream(line2);
+
+            // Get the user ID
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            UserId = atoi(temporaryString.c_str());
+            // Get the movie title
+            getline(inputStream, MovieName, ',');
+            // Get the user's rating
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            Rating = atof(temporaryString.c_str());
+
+            // Insert the user rating's information into the linked list 'userRating'
+            userRating.insert(
+                UserId,
+                MovieName,
+                Rating
+            );
+
+            line2 = "";
+        }
+    }
+
+
+
+    string inputString;
+    string inputString2;
+
+    cout << "Welcome to the Movie Search Engine!" << endl;
+
+    // Repeat new filtered movie searches as long as the user wants to by answering "yes" after the results have been displayed
+    do {
+        cout << endl << "Search for a movie by giving a:" << endl;
+        cout << "   1 -> Specific movie title" << endl;
+        cout << "or search for movies by giving a(n):" << endl;
+        cout << "   2 -> Movie genre" << endl;
+        cout << "   3 -> Director" << endl;
+        cout << "   4 -> Duration range" << endl;
+        cout << "   5 -> Actor/Actress" << endl;
+        cout << "   6 -> Language" << endl;
+        cout << "   7 -> Country of origin" << endl;
+        cout << "   8 -> Release date range (in year)" << endl << endl;
+
+        cout << "or search for the 100 movies with the:" << endl;
+        cout << "   9 -> Greatest number of reviews" << endl;
+        cout << "   10 -> Greatest number of votes" << endl;
+        cout << "   11 -> Highest IMDb ratings" << endl;
+        cout << "   12 -> Highest ratings in North America" << endl;
+        cout << "   13 -> Highest ratings in South America" << endl;
+        cout << "   14 -> Highest ratings in Europe" << endl;
+        cout << "   15 -> Highest ratings in Asia" << endl;
+        cout << "   16 -> Highest ratings in Africa" << endl;
+        cout << "   17 -> Highest ratings in Australia" << endl << endl;
+
+        cout << "or search for a:" << endl;
+        cout << "   18 -> Movie's list of individual user ratings" << endl;
+
+        cout << endl << endl << "Press a number between 1 & 18 to choose your filter option OR press 0 to end the program: ";
+        // Get the user's input
+        getline(cin, inputString);
+
+        int input = stoi(inputString);
+
+        switch (input) {
+            case 0:
+                cout << "Ending the program" << endl;
+                break;
+            case 1:
+                // Displays the information of the movie searched for
+                movies.searchMovieTitle();
+                break;
+            case 2:
+                // Displays the movies in the genre searched for
+                movies.searchByGenre();
+                break;
+            case 3:
+                // Displays the movies made by a specific director searched for
+                movies.searchByDirector();
+                break;
+            case 4:
+                // Displays the movies in the duration range searched for (in ascending order)
+                movies.searchByDuration();
+                break;
+            case 5:
+                // Displays the movies with the actor searched for
+                movies.searchByActor();
+                break;
+            case 6:
+                // Displays the movies with the language searched for
+                movies.searchByLanguage();
+                break;
+            case 7:
+                // Displays the movies that come from the country searched for
+                movies.searchByCountry();
+                break;
+            case 8:
+                // Displays the movies that were released in the year range searched for (in ascending order)
+                movies.searchByYear();
+                break;
+            case 9:
+                // Ranks the 100 movies with the greatest number of reviews (in descending order)
+                movies.rankByNumberOfReviews();
+                break;
+            case 10:
+                // Ranks the 100 movies with the greatest number of votes (in descending order)
+                movies.rankByVotes();
+                break;
+            case 11:
+                // Ranks the 100 movies with the highest IMDb ratings (in descending order)
+                movies.rankByImdb();
+                break;
+            case 12:
+                // Ranks the 100 movies with the highest ratings in North America (in descending order)
+                movies.rankByNorthAmericanRatings();
+                break;
+            case 13:
+                // Ranks the 100 movies with the highest ratings in South America (in descending order)
+                movies.rankBySouthAmericanRatings();
+                break;
+            case 14:
+                // Ranks the 100 movies with the highest ratings in Europe (in descending order)
+                movies.rankByEuropeanRatings();
+                break;
+            case 15:
+                // Ranks the 100 movies with the highest ratings in Asia (in descending order)
+                movies.rankByAsianRatings();
+                break;
+            case 16:
+                // Ranks the 100 movies with the highest ratings in Africa (in descending order)
+                movies.rankByAfricanRatings();
+                break;
+            case 17:
+                // Ranks the 100 movies with the highest ratings in Australia (in descending order)
+                movies.rankByAustralianRatings();
+                break;
+            case 18:
+                // Ranks the 100 movies with the highest ratings in Australia (in descending order)
+                userRating.searchMovieUserRatings();
+                break;
+            default:
+                cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
+        }
+
+        cout << endl << endl << endl << "Would you like to do a new movie search (Yes/No)? ";
+
+        // Get the user's input
+        getline(cin, inputString2);
+
+    } while (inputString2 == "Yes" || inputString2 == "yes");
 }

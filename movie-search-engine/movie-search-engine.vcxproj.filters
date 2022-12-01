@@ -13,20 +13,50 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="SourceFiles\LinkedListMovie">
+      <UniqueIdentifier>{6640a83c-6226-4cb4-9fa6-f4bbafa2a28e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles\LinkedListUserRating">
+      <UniqueIdentifier>{97bbd330-dc3e-45c3-b562-17812d710716}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>SourceFiles</Filter>
     </ClCompile>
+    <ClCompile Include="LinkedListMovie.cpp">
+      <Filter>SourceFiles\LinkedListMovie</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeMovie.cpp">
+      <Filter>SourceFiles\LinkedListMovie</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedListUserRating.cpp">
+      <Filter>SourceFiles\LinkedListUserRating</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeUserRating.cpp">
+      <Filter>SourceFiles\LinkedListUserRating</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="movie_data.csv">
+    <ClInclude Include="LinkedListMovie.h">
+      <Filter>SourceFiles\LinkedListMovie</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeMovie.h">
+      <Filter>SourceFiles\LinkedListMovie</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListUserRating.h">
+      <Filter>SourceFiles\LinkedListUserRating</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeUserRating.h">
+      <Filter>SourceFiles\LinkedListUserRating</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\OneDrive\Documents\UF\Fall 22\COP 3530\Project 3a\Datasets\movie_data.csv">
       <Filter>SourceFiles</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MovieInformation.h">
+    <None Include="..\..\..\..\..\OneDrive\Documents\UF\Fall 22\COP 3530\Project 3a\Datasets\ratings.csv">
       <Filter>SourceFiles</Filter>
-    </ClInclude>
+    </None>
   </ItemGroup>
 </Project>
