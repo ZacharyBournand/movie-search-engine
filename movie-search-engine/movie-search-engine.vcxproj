@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="HeapMovie.cpp" />
+    <ClCompile Include="NodeHeapMovie.cpp" />
     <ClCompile Include="NodeMovie.cpp" />
     <ClCompile Include="LinkedListMovie.cpp" />
     <ClCompile Include="LinkedListUserRating.cpp" />
     <ClCompile Include="NodeUserRating.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HeapMovie.h" />
+    <ClInclude Include="NodeHeapMovie.h" />
     <ClInclude Include="NodeUserRating.h" />
     <ClInclude Include="LinkedListUserRating.h" />
     <ClInclude Include="LinkedListMovie.h" />
