@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <map>
 #include "NodeHeapMovie.h"
 using namespace std;
 
@@ -8,6 +9,7 @@ using namespace std;
 class HeapMovie
 {
 private:
+	map<string, NodeHeapMovie*> mapmovies;
 	int count;
 	NodeHeapMovie* root;
 
@@ -59,5 +61,6 @@ public:
 	void rankByVotes();
 	// Ranks the 100 movies with the highest IMDb ratings (in descending order)
 	void rankByImdb();
+	NodeHeapMovie* searchHelper(NodeHeapMovie* root, int key);
 	// Ranks the 100 movies with the highest ratings in North America (in descending order)
 };
