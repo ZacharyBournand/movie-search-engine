@@ -85,50 +85,49 @@ NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
 	}
 	else if (root != nullptr)
 	{
-		NodeHeapMovie* newparent = root;
+		
 	
-
-		while (newparent->left != nullptr && newparent->right != nullptr)
+		while (root->left != nullptr && root->right != nullptr)
 		{
 			int random = rand();
 			if (random % 2 != 0)
 			{
-				newparent->right = insertHelper(newparent->right);
+				root->right = insertHelper(root->right);
 			}
 			else if (random % 2 == 0)
 			{
-				newparent->left = insertHelper(newparent->left);
+				root->left = insertHelper(root->left);
 			}
 		}
 
 		//with new parent variable we can now insert the newnode as a child of the parent
 
-		if (newparent->left != nullptr)
+		if (root->left != nullptr)
 		{
-			newparent->right = newNode;
+			root->right = newNode;
 		}
-		else if (newparent->right != nullptr)
+		else if (root->right != nullptr)
 		{
-			newparent->left = newNode;
+			root->left = newNode;
 		}
 
-		newNode->parent = newparent;
+		newNode->parent = root;
 
 		//once parent is set, we need to do swaps for making this heap a min heap
 		int year;
 
-		while (newparent != nullptr && newparent->TitleYear > newNode->TitleYear) 
+		while (root != nullptr && root->TitleYear > newNode->TitleYear)
 		{
-			year = newparent->TitleYear;
+			year = root->TitleYear;
 
 			//swap year for the nodes
-			newparent->TitleYear = newNode->TitleYear;
+			root->TitleYear = newNode->TitleYear;
 			newNode->TitleYear = year;
 			
 			//swap the parents
 			//new node will swithc with new parent and new parent will be equal to new nodes parent
-			newNode = newparent;
-			newparent = newNode->parent;
+			newNode = root;
+			root = newNode->parent;
 		}
 
 	}
