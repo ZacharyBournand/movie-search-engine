@@ -75,19 +75,17 @@ NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
 		}
 	
 	//for tree based heap
-	
+	mapmovies[name] = newNode;
 	if (root == nullptr)
 	{
 		root = newNode;
-		root->left = nullptr;
-		root->right = nullptr;
 		root->parent = nullptr;
 	}
 	else if (root != nullptr)
 	{
 		
 	
-		while (root->left != nullptr && root->right != nullptr)
+		while (root->left != nullptr || root->right != nullptr)
 		{
 			int random = rand();
 			if (random % 2 != 0)
@@ -132,7 +130,7 @@ NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
 
 	}
 	return newNode;
-	mapmovies[name] = newNode;
+	
 }
 
 NodeHeapMovie* HeapMovie::searchHelper(NodeHeapMovie* root, int year)
