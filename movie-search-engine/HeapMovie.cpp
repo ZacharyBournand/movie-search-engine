@@ -60,10 +60,10 @@ void HeapMovie::insert(string director_name,
 		africa_users_score,
 		australia_users_score);
 
-	root = insertHelper(newNode);
+	insertHelper(newNode);
 }
 
-NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
+void HeapMovie::insertHelper(NodeHeapMovie* newNode)
 {
 	
 
@@ -84,33 +84,38 @@ NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
 	else if (root != nullptr)
 	{
 		
-	
-		while (root->left != nullptr || root->right != nullptr)
+		bool flag = true;
+		while (flag == true)
 		{
-			int random = rand();
-			if (random % 2 != 0)
+			
+			if (newNode->TitleYear < root->TitleYear)
 			{
-				root->right = insertHelper(root->right);
+				if (root->left = nullptr)
+				{
+					root->left = newNode;
+					newNode->parent = root;
+					flag = false;
+				}
+				else
+				{
+					root = root->left;
+				}
 			}
-			else if (random % 2 == 0)
+			else
 			{
-				root->left = insertHelper(root->left);
+				if (root->right == nullptr)
+				{
+					root->right = newNode;
+					newNode->parent = root;
+					flag = false;
+				}
+				else 
+				{
+					root = root->right;
+				}
 			}
 		}
-
-		//with new parent variable we can now insert the newnode as a child of the parent
-
-		if (root->left != nullptr)
-		{
-			root->right = newNode;
-		}
-		else if (root->right != nullptr)
-		{
-			root->left = newNode;
-		}
-
-		newNode->parent = root;
-
+		
 		//once parent is set, we need to do swaps for making this heap a min heap
 		int year;
 
@@ -129,7 +134,7 @@ NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
 		}
 
 	}
-	return newNode;
+	
 	
 }
 

@@ -37,7 +37,7 @@ public:
 		double africa_users_score,
 		double australia_users_score);
 
-	NodeHeapMovie* insertHelper(NodeHeapMovie* object);
+	void insertHelper(NodeHeapMovie* object);
 	// Displays the information of the movie searched for
 	void searchMovieTitle();
 	// Displays the movies in the genre searched for
