@@ -52,15 +52,15 @@ public:
 	// Displays the movies with the language searched for
 	void searchByLanguage();
 	// Displays the movies that come from the country searched for
-	void searchByCountry();
+	//void searchByCountry();
 	// Displays the movies that were released in the year range searched for (in ascending order)
-	void searchByYear();
+	//void searchByYear();
 	// Ranks the 100 movies with the greatest number of reviews (in descending order)
-	void rankByNumberOfReviews();
+	//void rankByNumberOfReviews();
 	// Ranks the 100 movies with the greatest number of votes (in descending order)
-	void rankByVotes();
+	//void rankByVotes();
 	// Ranks the 100 movies with the highest IMDb ratings (in descending order)
-	void rankByImdb();
+	//void rankByImdb();
 	NodeHeapMovie* searchHelper(NodeHeapMovie* root, int key);
 	// Ranks the 100 movies with the highest ratings in North America (in descending order)
 };

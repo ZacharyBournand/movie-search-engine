@@ -67,7 +67,7 @@ void HeapMovie::insert(string director_name,
 		{
 			name[i] = tolower(name[i]);
 		}
-	mapmovies[name] = newNode;
+	
 	//for tree based heap
 	
 	if (root == nullptr)
@@ -126,6 +126,7 @@ void HeapMovie::insert(string director_name,
 		}
 
 	}
+	mapmovies[name] = newNode;
 }
 
 NodeHeapMovie* HeapMovie::searchHelper(NodeHeapMovie* root, int year)
@@ -265,3 +266,126 @@ void HeapMovie::searchByGenre()
 
 	
 }
+
+void HeapMovie::searchByDirector()
+{
+	string input;
+	std::cout << "Enter the director: " << endl;
+	getline(cin, input);
+	string key;
+
+	for (int i = 0; i < input.length(); i++)
+	{
+		input[i] = tolower(input[i]);
+	}
+	for (auto it = mapmovies.begin(); it != mapmovies.end(); it++)
+	{
+		string director = it->second->DirectorName;
+		for (int i = 0; i < director.length(); i++)
+		{
+			director[i] = tolower(director[i]);
+		}
+
+
+		if (director == input)
+		{
+			key = it->first;
+			break;
+		}
+	}
+
+	NodeHeapMovie* found = searchHelper(root, mapmovies[key]->TitleYear);
+
+	if (found == nullptr)
+	{
+		cout << "No movies with that director :(" << endl;
+	}
+	else
+	{
+		std::cout << endl;
+		std::cout << found->MovieTitle << endl;
+		// Display the movie's duration if it is given
+		if (found->Duration > 0)
+		{
+			std::cout << found->Duration << " minutes" << endl;
+		}
+		// Display the movie's release date (in year) if it is given
+		if (found->TitleYear > 0)
+		{
+			std::cout << found->TitleYear << endl;
+		}
+	}
+
+}
+
+//void HeapMovie::searchByDuration()
+//{
+	//bruh this is very complicated
+//}
+
+
+
+//void HeapMovie::searchByActor()
+//{
+
+//}
+
+void HeapMovie::searchByLanguage()
+{
+	string input;
+	std::cout << "Enter the language: " << endl;
+	getline(cin, input);
+	string key;
+	for (int i = 0; i < input.length(); i++)
+	{
+		input[i] = tolower(input[i]);
+	}
+
+	for (auto it = mapmovies.begin(); it != mapmovies.end(); it++)
+	{
+		string director = it->second->Language;
+		for (int i = 0; i < director.length(); i++)
+		{
+			director[i] = tolower(director[i]);
+		}
+
+
+		if (director == input)
+		{
+			key = it->first;
+			break;
+		}
+	}
+
+	NodeHeapMovie* found = searchHelper(root, mapmovies[key]->TitleYear);
+
+	if (found == nullptr)
+	{
+		std::cout << "No movies found in this language :(" << endl;
+	}
+	else
+	{
+		std::cout << endl;
+		std::cout << found->MovieTitle << endl;
+		// Display the movie's duration if it is given
+		if (found->Duration > 0)
+		{
+			std::cout << found->Duration << " minutes" << endl;
+		}
+		// Display the movie's release date (in year) if it is given
+		if (found->TitleYear > 0)
+		{
+			std::cout << found->TitleYear << endl;
+		}
+	}
+}
+
+//void HeapMovie::searchByCountry()
+//{
+//
+//}
+
+//void HeapMovie::searchByYear()
+//{
+
+//}

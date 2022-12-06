@@ -2,15 +2,15 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "LinkedListMovie.h"
-#include "NodeMovie.h"
-#include "LinkedListUserRating.h"
+//#include "LinkedListMovie.h"
+//#include "NodeMovie.h"
+//#include "LinkedListUserRating.h"
 #include "NodeUserRating.h"
 #include "HeapMovie.h"
 #include "NodeHeapMovie.h"
 using namespace std;
 
-int main()
+/*int main()
 {
     // Create an instance of the linked list that contains movies and information associated to them
     //test change
@@ -334,13 +334,15 @@ int main()
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-}
+}*/
 
 
 //CODE FOR MAIN FOR HEAP
-/*
-// Create an instance of the linked list that contains movies and information associated to them
-    //test change
+
+
+    int main()
+    {
+
     HeapMovie movies;
 
     string DirectorName;
@@ -536,66 +538,38 @@ string inputString;
                 // Displays the movies made by a specific director searched for
                 movies.searchByDirector();
                 break;
-            case 4:
+           // case 4:
                 // Displays the movies in the duration range searched for (in ascending order)
-                movies.searchByDuration();
-                break;
-            case 5:
+                //movies.searchByDuration();
+                //break;
+            //case 5:
                 // Displays the movies with the actor searched for
-                movies.searchByActor();
-                break;
+                //movies.searchByActor();
+               // break;
             case 6:
                 // Displays the movies with the language searched for
                 movies.searchByLanguage();
                 break;
-            case 7:
+           // case 7:
                 // Displays the movies that come from the country searched for
-                movies.searchByCountry();
-                break;
-            case 8:
+                //movies.searchByCountry();
+                //break;
+            //case 8:
                 // Displays the movies that were released in the year range searched for (in ascending order)
-                movies.searchByYear();
-                break;
-            case 9:
+                //movies.searchByYear();
+                //break;
+            //case 9:
                 // Ranks the 100 movies with the greatest number of reviews (in descending order)
-                movies.rankByNumberOfReviews();
-                break;
-            case 10:
+                //movies.rankByNumberOfReviews();
+                //break;
+            //case 10:
                 // Ranks the 100 movies with the greatest number of votes (in descending order)
-                movies.rankByVotes();
-                break;
-            case 11:
+                //movies.rankByVotes();
+                //break;
+            //case 11:
                 // Ranks the 100 movies with the highest IMDb ratings (in descending order)
-                movies.rankByImdb();
-                break;
-            case 12:
-                // Ranks the 100 movies with the highest ratings in North America (in descending order)
-                movies.rankByNorthAmericanRatings();
-                break;
-            case 13:
-                // Ranks the 100 movies with the highest ratings in South America (in descending order)
-                movies.rankBySouthAmericanRatings();
-                break;
-            case 14:
-                // Ranks the 100 movies with the highest ratings in Europe (in descending order)
-                movies.rankByEuropeanRatings();
-                break;
-            case 15:
-                // Ranks the 100 movies with the highest ratings in Asia (in descending order)
-                movies.rankByAsianRatings();
-                break;
-            case 16:
-                // Ranks the 100 movies with the highest ratings in Africa (in descending order)
-                movies.rankByAfricanRatings();
-                break;
-            case 17:
-                // Ranks the 100 movies with the highest ratings in Australia (in descending order)
-                movies.rankByAustralianRatings();
-                break;
-            case 18:
-                // Ranks the 100 movies with the highest ratings in Australia (in descending order)
-                userRating.searchMovieUserRatings();
-                break;
+                //movies.rankByImdb();
+               // break;
             default:
                 cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
         }
@@ -606,6 +580,5 @@ string inputString;
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
+   }
 
-
-*/
