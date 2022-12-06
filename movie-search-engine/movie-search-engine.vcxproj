@@ -148,6 +148,8 @@
     <ClCompile Include="NodeUserRating.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HashMap.h" />
+    <ClInclude Include="HashNode.h" />
     <ClInclude Include="HeapMovie.h" />
     <ClInclude Include="HeapMovieRating.h" />
     <ClInclude Include="NodeHeapMovie.h" />

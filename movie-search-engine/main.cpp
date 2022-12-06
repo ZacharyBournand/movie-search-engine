@@ -6,10 +6,12 @@
 //#include "NodeMovie.h"
 //#include "LinkedListUserRating.h"
 //#include "NodeUserRating.h"
-#include "HeapMovie.h"
-#include "NodeHeapMovie.h"
-#include "HeapMovieRating.h"
-#include "NodeHeapMovieRating.h"
+//#include "HeapMovie.h"
+//#include "NodeHeapMovie.h"
+//#include "HeapMovieRating.h"
+//#include "NodeHeapMovieRating.h"
+#include "HashMap.h"
+#include "HashNode.h"
 
 using namespace std;
 
@@ -340,10 +342,17 @@ using namespace std;
 }*/
 
 
-//CODE FOR MAIN FOR HEAP
+/******************************************************************************************************************/
+/******************************************************************************************************************/
+/************************CODE ***********************************************************************************/
+/***********************************************FOR***********************************************************/
+/************************************************************************HEAP******************************/
+/******************************************************************************************************************/
+
+/******************************************************************************************************************/
 
 
-    int main()
+    /*int main()
     {
 
     HeapMovie movies;
@@ -635,5 +644,107 @@ string inputString;
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-   }
+   }*/
 
+
+   /******************************************************************************************************************/
+/******************************************************************************************************************/
+/************************CODE ***********************************************************************************/
+/***********************************************FOR***********************************************************/
+/************************************************************************HASH******************************/
+/******************************************************************************************************************/
+
+/******************************************************************************************************************/
+
+
+int main()
+{
+    HashMap userRating;
+
+    int UserId;
+    string MovieName;
+    double Rating;
+
+    ifstream myFile2;
+    // Open the CSV file containing the data
+    myFile2.open("ratings.csv");
+    int counter2 = 0;
+
+    // If the program is unable to open the CSV file, output an error message
+    if (myFile2.fail()) {
+        cout << "Fail" << endl;
+    }
+
+    string line2 = "";
+
+    while (getline(myFile2, line2)) {
+        string temporaryString;
+
+        if (counter2 == 0) {
+            getline(myFile2, temporaryString);
+            counter2 = 1;
+        }
+        else {
+            stringstream inputStream(line2);
+
+            // Get the user ID
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            UserId = atoi(temporaryString.c_str());
+            // Get the movie title
+            getline(inputStream, MovieName, ',');
+            // Get the user's rating
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            Rating = atof(temporaryString.c_str());
+
+            // Insert the user rating's information into the Heap 'userRating'
+            userRating.insert(
+                UserId,
+                MovieName,
+                Rating
+            );
+
+            line2 = "";
+        }
+    }
+
+
+    string inputString;
+    string inputString2;
+
+    cout << "Welcome to the Movie Search Engine!" << endl;
+
+    // Repeat new filtered movie searches as long as the user wants to by answering "yes" after the results have been displayed
+    do {
+        cout << endl << "Search for a movie by giving a:" << endl;
+        
+        cout << "   1 -> Movie's list of individual user ratings" << endl;
+
+        cout << endl << endl << "Press a number between 1 & 9 to choose your filter option OR press 0 to end the program: ";
+        // Get the user's input
+        getline(cin, inputString);
+
+        int input = stoi(inputString);
+
+        switch (input) {
+        
+        case 1:
+            // Ranks the 100 movies with the highest IMDb ratings (in descending order)
+            userRating.searchMovieUserRatings();
+            break;
+        default:
+            cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
+        }
+
+        cout << endl << endl << endl << "Would you like to do a new movie search (Yes/No)? ";
+
+        // Get the user's input
+        getline(cin, inputString2);
+
+    } while (inputString2 == "Yes" || inputString2 == "yes");
+
+    return 0;
+}
+
+    
