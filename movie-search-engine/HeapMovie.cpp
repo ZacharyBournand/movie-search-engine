@@ -68,7 +68,10 @@ void HeapMovie::insert(string director_name,
 void HeapMovie::insertHelper(NodeHeapMovie* newNode)
 {
 	
-
+	if (sizearray == 5000)
+	{
+		return;
+	}
 	//for map of moives
 	string name = newNode->MovieTitle;
 	for (int i = 0; i < name.length(); i++) 
@@ -93,7 +96,7 @@ void HeapMovie::insertHelper(NodeHeapMovie* newNode)
 
 	while (index != 0 && arraypointer[parent].TitleYear > arraypointer[index].TitleYear)
 	{
-		swap(arraypointer[parent], arraypointer[index]);
+		swap(arraypointer[index], arraypointer[parent]);
 		parent = index;
 	}
 	
@@ -153,6 +156,7 @@ void HeapMovie::searchByGenre()
 	std::cout << "Enter the genre: " << endl;
 	getline(cin, input);
 	string key;
+	bool found = false;
 	
 	for (int i = 0; i < input.length(); i++)
 	{
@@ -169,6 +173,7 @@ void HeapMovie::searchByGenre()
 		}
 		if (genre.find(input) != string::npos)
 		{
+			found = true;
 				std::cout << endl;
 				std::cout << arraypointer[i].MovieTitle << endl;
 				// Display the movie's duration if it is given
@@ -183,6 +188,10 @@ void HeapMovie::searchByGenre()
 				}
 		}
 	}
+	if (found == false)
+	{
+		std::cout << "No movies found in this genre :(" << endl;
+	}
 }
 void HeapMovie::searchByDirector()
 {
@@ -190,6 +199,7 @@ void HeapMovie::searchByDirector()
 	std::cout << "Enter the director name: " << endl;
 	getline(cin, input);
 	string key;
+	bool found = false;
 
 	for (int i = 0; i < input.length(); i++)
 	{
@@ -206,6 +216,7 @@ void HeapMovie::searchByDirector()
 		}
 		if (director.find(input) != string::npos)
 		{
+			found = true;
 			std::cout << endl;
 			std::cout << arraypointer[i].MovieTitle << endl;
 			// Display the movie's duration if it is given
@@ -220,77 +231,259 @@ void HeapMovie::searchByDirector()
 			}
 		}
 	}
+	if (found == false)
+	{
+		std::cout << "No movies found that are made by this director :(" << endl;
+	}
 
 }
 
 void HeapMovie::searchByDuration()
 {
-	
+	string inputMaxDuration;
+	string inputMinDuration;
+	int maxDuration;
+	int minDuration;
+	bool found = false;
+
+	std::cout << "Enter the minimum movie duration (in minutes): " << endl;
+	getline(cin, inputMinDuration);
+
+	std::cout << "Enter the maximum movie duration (in minutes): " << endl;
+	getline(cin, inputMaxDuration);
+
+	minDuration = stoi(inputMinDuration);
+	maxDuration = stoi(inputMaxDuration);
+
+	for (unsigned int i = 0; i < sizearray; i++)
+	{
+		if ((i + 1) == sizearray)
+		{
+			break;
+		}
+		else
+		{
+			if (arraypointer[i].Duration > arraypointer[i + 1].Duration)
+			{
+				NodeHeapMovie temp = arraypointer[i];
+				arraypointer[i] = arraypointer[i + 1];
+				arraypointer[i + 1] = temp;
+			}
+		}
+		
+	}
+
+	for (unsigned int j = 0; j < sizearray; j++)
+	{
+		if (arraypointer[j].Duration > minDuration && arraypointer[j].Duration < maxDuration)
+		{
+			found = true;
+			std::cout << endl;
+			std::cout << arraypointer[j].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[j].Duration > 0)
+			{
+				std::cout << arraypointer[j].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[j].TitleYear > 0)
+			{
+				std::cout << arraypointer[j].TitleYear << endl;
+			}
+		}
+		
+	}
+	if (found == false)
+	{
+		std::cout << "No movies found in this duration range :(" << endl;
+	}
 }
 
 
 
-//void HeapMovie::searchByActor()
-//{
-
-//}
-
-/*void HeapMovie::searchByLanguage()
+void HeapMovie::searchByActor()
 {
 	string input;
-	std::cout << "Enter the language: " << endl;
+	std::cout << "Enter the actor/actress: " << endl;
 	getline(cin, input);
-	string key;
+	bool found = false;
+
 	for (int i = 0; i < input.length(); i++)
 	{
 		input[i] = tolower(input[i]);
 	}
 
-	for (auto it = mapmovies.begin(); it != mapmovies.end(); it++)
+	for (unsigned int i = 0; i < sizearray; i++)
 	{
-		string director = it->second->Language;
-		for (int i = 0; i < director.length(); i++)
-		{
-			director[i] = tolower(director[i]);
+		for (int j = 0; j < arraypointer[i].Actor1Name.length(); j++) {
+			arraypointer[i].Actor1Name[j] = tolower(arraypointer[i].Actor1Name[j]);
+		}
+		// Convert the 'Actor2Name' string to lowercase
+		for (int j = 0; j < arraypointer[i].Actor2Name.length(); j++) {
+			arraypointer[i].Actor2Name[j] = tolower(arraypointer[i].Actor2Name[j]);
+		}// Convert the 'Actor3Name' string to lowercase
+		for (int j = 0; j < arraypointer[i].Actor3Name.length(); j++) {
+			arraypointer[i].Actor3Name[j] = tolower(arraypointer[i].Actor3Name[j]);
 		}
 
-
-		if (director == input)
+		if (arraypointer[i].Actor1Name.find(input) != string::npos || arraypointer[i].Actor2Name.find(input) != string::npos || arraypointer[i].Actor3Name.find(input) != string::npos)
 		{
-			key = it->first;
-			break;
+			found = true;
+			std::cout << endl;
+			std::cout << arraypointer[i].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[i].Duration > 0)
+			{
+				std::cout << arraypointer[i].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[i].TitleYear > 0)
+			{
+				std::cout << arraypointer[i].TitleYear << endl;
+			}
 		}
 	}
-
-	NodeHeapMovie* found = searchHelper(root, mapmovies[key]->TitleYear);
-
-	if (found == nullptr)
+	if (found = false)
 	{
-		std::cout << "No movies found in this language :(" << endl;
-	}
-	else
-	{
-		std::cout << endl;
-		std::cout << found->MovieTitle << endl;
-		// Display the movie's duration if it is given
-		if (found->Duration > 0)
-		{
-			std::cout << found->Duration << " minutes" << endl;
-		}
-		// Display the movie's release date (in year) if it is given
-		if (found->TitleYear > 0)
-		{
-			std::cout << found->TitleYear << endl;
-		}
+		std::cout << "No movies found with this actor/actress :(" << endl;
 	}
 }
 
-//void HeapMovie::searchByCountry()
-//{
-//
-//}
+void HeapMovie::searchByLanguage()
+{
+	string input;
+	std::cout << "Enter the language: " << endl;
+	getline(cin, input);
+	string key;
+	bool found = false;
+	for (int i = 0; i < input.length(); i++)
+	{
+		input[i] = tolower(input[i]);
+	}
 
-//void HeapMovie::searchByYear()
-//{
 
-//}*/
+	for (int i = 0; i < sizearray; i++)
+	{
+		string language = arraypointer[i].Language;
+		for (int i = 0; i < language.length(); i++)
+		{
+			language[i] = tolower(language[i]);
+		}
+		if (language.find(input) != string::npos)
+		{
+			found = true;
+			std::cout << endl;
+			std::cout << arraypointer[i].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[i].Duration > 0)
+			{
+				std::cout << arraypointer[i].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[i].TitleYear > 0)
+			{
+				std::cout << arraypointer[i].TitleYear << endl;
+			}
+		}
+		
+	}
+	if (found == false)
+	{
+		std::cout << "No movies found in this language :(" << endl;
+	}
+}
+
+void HeapMovie::searchByCountry()
+{
+	string input;
+	std::cout << "Enter the country: " << endl;
+	getline(cin, input);
+	string key;
+	bool found = false;
+
+	for (int i = 0; i < input.length(); i++)
+	{
+		input[i] = tolower(input[i]);
+	}
+
+	if (input == "united states" || input == "us" || input == "u.s." || input == "u.s.a." || input == "america") {
+		input = "usa";
+	}
+	// If the user inputs the United Kingdom with a spelling that is diferent from "uk", change the input to "uk"
+	else if (input == "united kingdom" || input == "u.k." || input == "england" || input == "wales"
+		|| input == "scotland" || input == "northern ireland") {
+		input = "uk";
+	}
+
+
+	for (int i = 0; i < sizearray; i++)
+	{
+		string country = arraypointer[i].Country;
+		for (int i = 0; i < country.length(); i++)
+		{
+			country[i] = tolower(country[i]);
+		}
+		if (country.find(input) != string::npos)
+		{
+			found = true;
+			std::cout << endl;
+			std::cout << arraypointer[i].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[i].Duration > 0)
+			{
+				std::cout << arraypointer[i].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[i].TitleYear > 0)
+			{
+				std::cout << arraypointer[i].TitleYear << endl;
+			}
+		}
+		
+	}
+	if (found == false)
+	{
+		std::cout << "No movies found that come from this country :(" << endl;
+	}
+}
+
+void HeapMovie::searchByYear()
+{
+	bool found = false;
+	string inputMinDuration;
+	string inputMaxDuration;
+	std::cout << "Enter the oldest release date (in year): " << endl;
+	getline(cin, inputMinDuration);
+
+	std::cout << "Enter the most recent release date (in year): " << endl;
+	getline(cin, inputMaxDuration);
+
+	// Convert the inputs to strings
+	int minDuration = stoi(inputMinDuration);
+	int maxDuration = stoi(inputMaxDuration);
+
+	for (unsigned int j = 0; j < sizearray; j++)
+	{
+		if (arraypointer[j].TitleYear > minDuration && arraypointer[j].TitleYear < maxDuration)
+		{
+			found = true;
+			std::cout << endl;
+			std::cout << arraypointer[j].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[j].Duration > 0)
+			{
+				std::cout << arraypointer[j].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[j].TitleYear > 0)
+			{
+				std::cout << arraypointer[j].TitleYear << endl;
+			}
+		}
+
+	}
+	if (found == false)
+	{
+		std::cout << "No movies found in this duration range :(" << endl;
+	}
+}

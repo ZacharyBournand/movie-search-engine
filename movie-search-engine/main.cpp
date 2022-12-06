@@ -542,22 +542,22 @@ string inputString;
                 // Displays the movies in the duration range searched for (in ascending order)
                 movies.searchByDuration();
                 break;
-            //case 5:
+            case 5:
                 // Displays the movies with the actor searched for
-                //movies.searchByActor();
-               // break;
-            //case 6:
+                movies.searchByActor();
+               break;
+            case 6:
                 // Displays the movies with the language searched for
-                //movies.searchByLanguage();
-               // break;
-           // case 7:
+                movies.searchByLanguage();
+               break;
+           case 7:
                 // Displays the movies that come from the country searched for
-                //movies.searchByCountry();
-                //break;
-            //case 8:
+                movies.searchByCountry();
+                break;
+            case 8:
                 // Displays the movies that were released in the year range searched for (in ascending order)
-                //movies.searchByYear();
-                //break;
+                movies.searchByYear();
+                break;
             //case 9:
                 // Ranks the 100 movies with the greatest number of reviews (in descending order)
                 //movies.rankByNumberOfReviews();
