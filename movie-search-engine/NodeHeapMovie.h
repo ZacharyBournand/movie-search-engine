@@ -10,7 +10,6 @@ struct NodeHeapMovie
     NodeHeapMovie* left;
     NodeHeapMovie* right;
     NodeHeapMovie* parent;
-    int val;
     string DirectorName;
     int Duration;
     string Actor2Name;

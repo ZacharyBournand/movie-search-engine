@@ -51,7 +51,6 @@ NodeHeapMovie::NodeHeapMovie(
 	AsiaUsersScore = asia_users_score;
 	AfricaUsersScore = africa_users_score;
 	AustraliaUsersScore = australia_users_score;
-	val = title_year;
 	left = nullptr;
 	right = nullptr;
 	

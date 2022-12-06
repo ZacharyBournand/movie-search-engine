@@ -12,7 +12,6 @@ using namespace std;
 
 HeapMovie::HeapMovie() 
 {
-	count = 0;
 	root = nullptr;
 };
 
@@ -61,6 +60,13 @@ void HeapMovie::insert(string director_name,
 		africa_users_score,
 		australia_users_score);
 
+	root = insertHelper(newNode);
+}
+
+NodeHeapMovie* HeapMovie::insertHelper(NodeHeapMovie* newNode)
+{
+	
+
 	//for map of moives
 	string name = newNode->MovieTitle;
 	for (int i = 0; i < name.length(); i++) 
@@ -87,11 +93,11 @@ void HeapMovie::insert(string director_name,
 			int random = rand();
 			if (random % 2 != 0)
 			{
-				newparent = newparent->right;
+				newparent->right = insertHelper(newparent->right);
 			}
 			else if (random % 2 == 0)
 			{
-				newparent = newparent->left;
+				newparent->left = insertHelper(newparent->left);
 			}
 		}
 
@@ -126,6 +132,7 @@ void HeapMovie::insert(string director_name,
 		}
 
 	}
+	return newNode;
 	mapmovies[name] = newNode;
 }
 

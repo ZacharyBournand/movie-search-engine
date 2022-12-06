@@ -10,14 +10,12 @@ class HeapMovie
 {
 private:
 	map<string, NodeHeapMovie*> mapmovies;
-	int count;
 	NodeHeapMovie* root;
 
 public:
 	HeapMovie();
 	// Insert the movie's information into the heap
-	void insert(
-		string director_name,
+	void insert(string director_name,
 		int duration,
 		string actor_2_name,
 		string genres,
@@ -37,8 +35,9 @@ public:
 		double europe_users_score,
 		double asia_users_score,
 		double africa_users_score,
-		double australia_users_score
-	);
+		double australia_users_score);
+
+	NodeHeapMovie* insertHelper(NodeHeapMovie* object);
 	// Displays the information of the movie searched for
 	void searchMovieTitle();
 	// Displays the movies in the genre searched for
