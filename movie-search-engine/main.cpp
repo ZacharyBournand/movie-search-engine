@@ -531,25 +531,25 @@ string inputString;
                 movies.searchMovieTitle();
                 break;
             case 2:
-                // Displays the movies in the genre searched for
+                //Displays the movies in the genre searched for
                 movies.searchByGenre();
                 break;
             case 3:
-                // Displays the movies made by a specific director searched for
+                 //Displays the movies made by a specific director searched for
                 movies.searchByDirector();
                 break;
-           // case 4:
+           case 4:
                 // Displays the movies in the duration range searched for (in ascending order)
-                //movies.searchByDuration();
-                //break;
+                movies.searchByDuration();
+                break;
             //case 5:
                 // Displays the movies with the actor searched for
                 //movies.searchByActor();
                // break;
-            case 6:
+            //case 6:
                 // Displays the movies with the language searched for
-                movies.searchByLanguage();
-                break;
+                //movies.searchByLanguage();
+               // break;
            // case 7:
                 // Displays the movies that come from the country searched for
                 //movies.searchByCountry();

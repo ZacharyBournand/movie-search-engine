@@ -12,7 +12,9 @@ using namespace std;
 
 HeapMovie::HeapMovie() 
 {
-	root = nullptr;
+	sizearray = 0;
+	capacity = 5000;
+	arraypointer = new NodeHeapMovie[capacity];
 };
 
 void HeapMovie::insert(string director_name,
@@ -76,131 +78,53 @@ void HeapMovie::insertHelper(NodeHeapMovie* newNode)
 	
 	//for tree based heap
 	mapmovies[name] = newNode;
-	if (root == nullptr)
+
+	sizearray++;
+
+	int index = sizearray - 1;
+	arraypointer[index] = *newNode;
+
+	
+
+	int left = 2 * index + 1; // left = 2 * i + 1  
+	int right = 2 * index + 2; // right = 2 * i + 2  
+	
+	int parent = (index - 1) / 2; 
+
+	while (index != 0 && arraypointer[parent].TitleYear > arraypointer[index].TitleYear)
 	{
-		root = newNode;
-		root->parent = nullptr;
-	}
-	else if (root != nullptr)
-	{
-		
-		bool flag = true;
-		while (flag == true)
-		{
-			
-			if (newNode->TitleYear < root->TitleYear)
-			{
-				if (root->left = nullptr)
-				{
-					root->left = newNode;
-					newNode->parent = root;
-					flag = false;
-				}
-				else
-				{
-					root = root->left;
-				}
-			}
-			else
-			{
-				if (root->right == nullptr)
-				{
-					root->right = newNode;
-					newNode->parent = root;
-					flag = false;
-				}
-				else 
-				{
-					root = root->right;
-				}
-			}
-		}
-		
-		//once parent is set, we need to do swaps for making this heap a min heap
-		int year;
-
-		while (root != nullptr && root->TitleYear > newNode->TitleYear)
-		{
-			year = root->TitleYear;
-
-			//swap year for the nodes
-			root->TitleYear = newNode->TitleYear;
-			newNode->TitleYear = year;
-			
-			//swap the parents
-			//new node will swithc with new parent and new parent will be equal to new nodes parent
-			newNode = root;
-			root = newNode->parent;
-		}
-
+		swap(arraypointer[parent], arraypointer[index]);
+		parent = index;
 	}
 	
 	
 }
 
-NodeHeapMovie* HeapMovie::searchHelper(NodeHeapMovie* root, int year)
-	{
-		queue<NodeHeapMovie*> q;
-		q.push(root);
-		bool found = false;
-		//if level = 0, then the root is the level i need and i just return that
-		if (root == nullptr)
-		{
-			cout << "unsuccessful" << endl;
-		}
-		else
-		{
-			while (!q.empty())
-			{
-				//hold a sum variable for the sums of each level, then find the size of the queue based on how many objects are in it
 
-				int size = q.size();
-
-				//iterate through the size of the queue, once i finish the size of the queue itll add up the values on each of the levels by going to
-				//nodes->right and nodes->left conditionally if it is not nullptr
-				for (unsigned int i = 0; i < size; i++)
-				{
-
-					NodeHeapMovie* current = q.front();
-					q.pop();
-
-					//if current->val is the value i need then print out theior name
-					if (current->TitleYear == year)
-					{
-						found = true;
-						return current;
-					}
-					else
-					{
-						if (current->left != nullptr)
-							q.push(current->left);
-						if (current->right != nullptr)
-							q.push(current->right);
-					}
-				}
-			}
-			if (found == false)
-			{
-				
-				return nullptr;
-			}
-
-		}
-	}
 
 void HeapMovie::searchMovieTitle()
 {
 	string input;
 	std::cout << "Enter the movie title: " << endl;
 	getline(cin, input);
+	string key;
+	bool yes = false;
 	for (int i = 0; i < input.length(); i++)
 	{
 		input[i] = tolower(input[i]);
 	}
 	
-	NodeHeapMovie* found = searchHelper(root, mapmovies[input]->TitleYear);
+	NodeHeapMovie* found = mapmovies[input];
+	
+	for (int i = 0; i < sizearray; i++)
+	{
+		if (arraypointer[i].TitleYear = found->TitleYear)
+		{
+			yes = true;
+		}
+	}
 
-	if (found == nullptr) 
+	if (yes == false) 
 	{
 		std::cout << "Movie not found :(" << endl;
 	}
@@ -222,64 +146,48 @@ void HeapMovie::searchMovieTitle()
 
 }
 
-void HeapMovie::searchByGenre() 
+void HeapMovie::searchByGenre()
 {
 	
 	string input;
 	std::cout << "Enter the genre: " << endl;
 	getline(cin, input);
 	string key;
-
+	
 	for (int i = 0; i < input.length(); i++)
 	{
 		input[i] = tolower(input[i]);
 	}
-	for (auto it = mapmovies.begin(); it != mapmovies.end(); it++)
+	
+	
+	for (int i = 0; i < sizearray; i++)
 	{
-		string genre = it->second->Genres;
+		string genre = arraypointer[i].Genres;
 		for (int i = 0; i < genre.length(); i++)
 		{
 			genre[i] = tolower(genre[i]);
 		}
-
-
-		if (genre == input)
+		if (genre.find(input) != string::npos)
 		{
-			key = it->first;
-			break;
+				std::cout << endl;
+				std::cout << arraypointer[i].MovieTitle << endl;
+				// Display the movie's duration if it is given
+				if (arraypointer[i].Duration > 0)
+				{
+					std::cout << arraypointer[i].Duration << " minutes" << endl;
+				}
+				// Display the movie's release date (in year) if it is given
+				if (arraypointer[i].TitleYear > 0)
+				{
+					std::cout << arraypointer[i].TitleYear << endl;
+				}
 		}
 	}
-
-	NodeHeapMovie* found = searchHelper(root, mapmovies[key]->TitleYear);
-
-	if (found == nullptr)
-	{
-		std::cout << "Genre not found :(" << endl;
-	}
-	// Traverse through the list to find movies in the genre searched for
-	else 
-	{
-			std::cout << endl;
-			std::cout << found->MovieTitle << endl;
-			// Display the movie's duration if it is given
-			if (found->Duration > 0) 
-			{
-				std::cout << found->Duration << " minutes" << endl;
-			}
-			// Display the movie's release date (in year) if it is given
-			if (found->TitleYear > 0) 
-			{
-				std::cout << found->TitleYear << endl;
-			}
-	}
-
-	
 }
-
 void HeapMovie::searchByDirector()
 {
 	string input;
-	std::cout << "Enter the director: " << endl;
+	std::cout << "Enter the director name: " << endl;
 	getline(cin, input);
 	string key;
 
@@ -287,50 +195,38 @@ void HeapMovie::searchByDirector()
 	{
 		input[i] = tolower(input[i]);
 	}
-	for (auto it = mapmovies.begin(); it != mapmovies.end(); it++)
+
+
+	for (int i = 0; i < sizearray; i++)
 	{
-		string director = it->second->DirectorName;
+		string director = arraypointer[i].DirectorName;
 		for (int i = 0; i < director.length(); i++)
 		{
 			director[i] = tolower(director[i]);
 		}
-
-
-		if (director == input)
+		if (director.find(input) != string::npos)
 		{
-			key = it->first;
-			break;
-		}
-	}
-
-	NodeHeapMovie* found = searchHelper(root, mapmovies[key]->TitleYear);
-
-	if (found == nullptr)
-	{
-		cout << "No movies with that director :(" << endl;
-	}
-	else
-	{
-		std::cout << endl;
-		std::cout << found->MovieTitle << endl;
-		// Display the movie's duration if it is given
-		if (found->Duration > 0)
-		{
-			std::cout << found->Duration << " minutes" << endl;
-		}
-		// Display the movie's release date (in year) if it is given
-		if (found->TitleYear > 0)
-		{
-			std::cout << found->TitleYear << endl;
+			std::cout << endl;
+			std::cout << arraypointer[i].MovieTitle << endl;
+			// Display the movie's duration if it is given
+			if (arraypointer[i].Duration > 0)
+			{
+				std::cout << arraypointer[i].Duration << " minutes" << endl;
+			}
+			// Display the movie's release date (in year) if it is given
+			if (arraypointer[i].TitleYear > 0)
+			{
+				std::cout << arraypointer[i].TitleYear << endl;
+			}
 		}
 	}
 
 }
 
-//void HeapMovie::searchByDuration()
-//{
-	//bruh this is very complicated
-//}
+void HeapMovie::searchByDuration()
+{
+	
+}
 
 
 
@@ -339,7 +235,7 @@ void HeapMovie::searchByDirector()
 
 //}
 
-void HeapMovie::searchByLanguage()
+/*void HeapMovie::searchByLanguage()
 {
 	string input;
 	std::cout << "Enter the language: " << endl;
@@ -397,4 +293,4 @@ void HeapMovie::searchByLanguage()
 //void HeapMovie::searchByYear()
 //{
 
-//}
+//}*/

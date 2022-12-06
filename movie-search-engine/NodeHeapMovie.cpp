@@ -5,7 +5,10 @@
 using namespace std;
 
 //Default Constructor
+NodeHeapMovie::NodeHeapMovie()
+{
 
+};
 // Constructor
 NodeHeapMovie::NodeHeapMovie(
 	string director_name,
@@ -51,7 +54,5 @@ NodeHeapMovie::NodeHeapMovie(
 	AsiaUsersScore = asia_users_score;
 	AfricaUsersScore = africa_users_score;
 	AustraliaUsersScore = australia_users_score;
-	left = nullptr;
-	right = nullptr;
 	
 }

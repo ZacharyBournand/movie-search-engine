@@ -8,11 +8,11 @@ using namespace std;
 //Heap that contains all the movies sorted from oldest to newest (min heap)
 class HeapMovie
 {
-private:
-	map<string, NodeHeapMovie*> mapmovies;
-	NodeHeapMovie* root;
-
 public:
+	map<string, NodeHeapMovie*> mapmovies;
+	NodeHeapMovie* arraypointer;
+	int capacity;
+	int sizearray;
 	HeapMovie();
 	// Insert the movie's information into the heap
 	void insert(string director_name,
@@ -60,6 +60,6 @@ public:
 	//void rankByVotes();
 	// Ranks the 100 movies with the highest IMDb ratings (in descending order)
 	//void rankByImdb();
-	NodeHeapMovie* searchHelper(NodeHeapMovie* root, int key);
+	
 	// Ranks the 100 movies with the highest ratings in North America (in descending order)
 };
