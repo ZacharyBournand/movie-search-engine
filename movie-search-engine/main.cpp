@@ -5,9 +5,12 @@
 //#include "LinkedListMovie.h"
 //#include "NodeMovie.h"
 //#include "LinkedListUserRating.h"
-#include "NodeUserRating.h"
+//#include "NodeUserRating.h"
 #include "HeapMovie.h"
 #include "NodeHeapMovie.h"
+#include "HeapMovieRating.h"
+#include "NodeHeapMovieRating.h"
+
 using namespace std;
 
 /*int main()
@@ -484,6 +487,58 @@ using namespace std;
             line = "";
         }
     }
+
+    HeapMovieRating userRating;
+
+    int UserId;
+    string MovieName;
+    double Rating;
+
+    ifstream myFile2;
+    // Open the CSV file containing the data
+    myFile2.open("ratings.csv");
+    int counter2 = 0;
+
+    // If the program is unable to open the CSV file, output an error message
+    if (myFile2.fail()) {
+        cout << "Fail" << endl;
+    }
+
+    string line2 = "";
+
+    while (getline(myFile2, line2)) {
+        string temporaryString;
+
+        if (counter2 == 0) {
+            getline(myFile2, temporaryString);
+            counter2 = 1;
+        }
+        else {
+            stringstream inputStream(line2);
+
+            // Get the user ID
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            UserId = atoi(temporaryString.c_str());
+            // Get the movie title
+            getline(inputStream, MovieName, ',');
+            // Get the user's rating
+            temporaryString = "";
+            getline(inputStream, temporaryString, ',');
+            Rating = atof(temporaryString.c_str());
+
+            // Insert the user rating's information into the Heap 'userRating'
+            userRating.insert(
+                UserId,
+                MovieName,
+                Rating
+            );
+
+            line2 = "";
+        }
+    }
+
+
 string inputString;
     string inputString2;
 
@@ -502,21 +557,21 @@ string inputString;
         cout << "   7 -> Country of origin" << endl;
         cout << "   8 -> Release date range (in year)" << endl << endl;
 
-        cout << "or search for the 100 movies with the:" << endl;
-        cout << "   9 -> Greatest number of reviews" << endl;
-        cout << "   10 -> Greatest number of votes" << endl;
-        cout << "   11 -> Highest IMDb ratings" << endl;
-        cout << "   12 -> Highest ratings in North America" << endl;
-        cout << "   13 -> Highest ratings in South America" << endl;
-        cout << "   14 -> Highest ratings in Europe" << endl;
-        cout << "   15 -> Highest ratings in Asia" << endl;
-        cout << "   16 -> Highest ratings in Africa" << endl;
-        cout << "   17 -> Highest ratings in Australia" << endl << endl;
+        //cout << "or search for the 100 movies with the:" << endl;
+        //cout << "   9 -> Greatest number of reviews" << endl;
+        //cout << "   10 -> Greatest number of votes" << endl;
+        //cout << "   11 -> Highest IMDb ratings" << endl;
+        //cout << "   12 -> Highest ratings in North America" << endl;
+        //cout << "   13 -> Highest ratings in South America" << endl;
+        //cout << "   14 -> Highest ratings in Europe" << endl;
+        //cout << "   15 -> Highest ratings in Asia" << endl;
+       // cout << "   16 -> Highest ratings in Africa" << endl;
+        //cout << "   17 -> Highest ratings in Australia" << endl << endl;
 
         cout << "or search for a:" << endl;
-        cout << "   18 -> Movie's list of individual user ratings" << endl;
+        cout << "   9 -> Movie's list of individual user ratings" << endl;
 
-        cout << endl << endl << "Press a number between 1 & 18 to choose your filter option OR press 0 to end the program: ";
+        cout << endl << endl << "Press a number between 1 & 9 to choose your filter option OR press 0 to end the program: ";
         // Get the user's input
         getline(cin, inputString);
 
@@ -566,10 +621,10 @@ string inputString;
                 // Ranks the 100 movies with the greatest number of votes (in descending order)
                 //movies.rankByVotes();
                 //break;
-            //case 11:
+            case 18:
                 // Ranks the 100 movies with the highest IMDb ratings (in descending order)
-                //movies.rankByImdb();
-               // break;
+                userRating.searchMovieUserRatings();
+                break;
             default:
                 cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
         }

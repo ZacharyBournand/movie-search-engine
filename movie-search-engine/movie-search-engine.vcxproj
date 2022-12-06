@@ -149,7 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeapMovie.h" />
+    <ClInclude Include="HeapMovieRating.h" />
     <ClInclude Include="NodeHeapMovie.h" />
+    <ClInclude Include="NodeHeapMovieRating.h" />
     <ClInclude Include="NodeUserRating.h" />
     <ClInclude Include="LinkedListUserRating.h" />
     <ClInclude Include="LinkedListMovie.h" />

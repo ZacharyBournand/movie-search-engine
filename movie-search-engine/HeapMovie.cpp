@@ -487,3 +487,4 @@ void HeapMovie::searchByYear()
 		std::cout << "No movies found in this duration range :(" << endl;
 	}
 }
+

@@ -56,10 +56,6 @@ public:
 	void searchByYear();
 	// Ranks the 100 movies with the greatest number of reviews (in descending order)
 	//void rankByNumberOfReviews();
-	// Ranks the 100 movies with the greatest number of votes (in descending order)
+
 	//void rankByVotes();
-	// Ranks the 100 movies with the highest IMDb ratings (in descending order)
-	//void rankByImdb();
-	
-	// Ranks the 100 movies with the highest ratings in North America (in descending order)
 };

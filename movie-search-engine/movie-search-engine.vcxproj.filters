@@ -19,8 +19,11 @@
     <Filter Include="SourceFiles\LinkedListUserRating">
       <UniqueIdentifier>{97bbd330-dc3e-45c3-b562-17812d710716}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SourceFiles\MapMovie">
+    <Filter Include="SourceFiles\HeapMovie">
       <UniqueIdentifier>{26c8eaf5-d04f-4cf2-883b-123c19be2426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles\HeapMovieRating">
+      <UniqueIdentifier>{bd299cf2-fddd-41d6-9cb4-0c0aaba11e37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,10 +43,10 @@
       <Filter>SourceFiles\LinkedListUserRating</Filter>
     </ClCompile>
     <ClCompile Include="HeapMovie.cpp">
-      <Filter>SourceFiles\MapMovie</Filter>
+      <Filter>SourceFiles\HeapMovie</Filter>
     </ClCompile>
     <ClCompile Include="NodeHeapMovie.cpp">
-      <Filter>SourceFiles\MapMovie</Filter>
+      <Filter>SourceFiles\HeapMovie</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +63,16 @@
       <Filter>SourceFiles\LinkedListUserRating</Filter>
     </ClInclude>
     <ClInclude Include="HeapMovie.h">
-      <Filter>SourceFiles\MapMovie</Filter>
+      <Filter>SourceFiles\HeapMovie</Filter>
     </ClInclude>
     <ClInclude Include="NodeHeapMovie.h">
-      <Filter>SourceFiles\MapMovie</Filter>
+      <Filter>SourceFiles\HeapMovie</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapMovieRating.h">
+      <Filter>SourceFiles\HeapMovieRating</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeHeapMovieRating.h">
+      <Filter>SourceFiles\HeapMovieRating</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
