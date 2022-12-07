@@ -25,7 +25,7 @@
     <Filter Include="SourceFiles\HeapMovieRating">
       <UniqueIdentifier>{bd299cf2-fddd-41d6-9cb4-0c0aaba11e37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SourceFiles\HashMap">
+    <Filter Include="SourceFiles\GraphRating">
       <UniqueIdentifier>{218b49d6-b1ef-4afb-984f-1ed36c3776c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -77,11 +77,11 @@
     <ClInclude Include="NodeHeapMovieRating.h">
       <Filter>SourceFiles\HeapMovieRating</Filter>
     </ClInclude>
-    <ClInclude Include="HashMap.h">
-      <Filter>SourceFiles\HashMap</Filter>
+    <ClInclude Include="Graph.h">
+      <Filter>SourceFiles\GraphRating</Filter>
     </ClInclude>
-    <ClInclude Include="HashNode.h">
-      <Filter>SourceFiles\HashMap</Filter>
+    <ClInclude Include="Node.h">
+      <Filter>SourceFiles\GraphRating</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

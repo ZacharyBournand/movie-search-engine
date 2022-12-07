@@ -10,9 +10,8 @@
 //#include "NodeHeapMovie.h"
 //#include "HeapMovieRating.h"
 //#include "NodeHeapMovieRating.h"
-//#include "HashMap.h"
-//#include "HashNode.h"
-#include <chrono>
+#include "Graph.h"
+#include "Node.h"
 
 using namespace std;
 
@@ -652,7 +651,7 @@ string inputString;
 /******************************************************************************************************************/
 /************************CODE ***********************************************************************************/
 /***********************************************FOR***********************************************************/
-/************************************************************************HASH******************************/
+/************************************************************************GRAPH******************************/
 /******************************************************************************************************************/
 
 /******************************************************************************************************************/
@@ -660,7 +659,7 @@ string inputString;
 
 /*int main()
 {
-    HashMap userRating;
+    Graph userRating;
 
     int UserId;
     string MovieName;
@@ -700,7 +699,7 @@ string inputString;
             Rating = atof(temporaryString.c_str());
 
             // Insert the user rating's information into the Heap 'userRating'
-            userRating.insert(
+            userRating.insertRating(
                 UserId,
                 MovieName,
                 Rating
@@ -747,5 +746,5 @@ string inputString;
 
     return 0;
 }
-*/
+
     
