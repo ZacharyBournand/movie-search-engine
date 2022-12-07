@@ -29,13 +29,7 @@ public:
 		string country,
 		int title_year,
 		double imdb_score,
-		int id,
-		double north_america_users_score,
-		double south_america_users_score,
-		double europe_users_score,
-		double asia_users_score,
-		double africa_users_score,
-		double australia_users_score
+		int id
 	);
 	// Displays the information of the movie searched for
 	void searchMovieTitle();
@@ -59,16 +53,4 @@ public:
 	void rankByVotes();
 	// Ranks the 100 movies with the highest IMDb ratings (in descending order)
 	void rankByImdb();
-	// Ranks the 100 movies with the highest ratings in North America (in descending order)
-	void rankByNorthAmericanRatings();
-	// Ranks the 100 movies with the highest ratings in South America (in descending order)
-	void rankBySouthAmericanRatings();
-	// Ranks the 100 movies with the highest ratings in Europe (in descending order)
-	void rankByEuropeanRatings();
-	// Ranks the 100 movies with the highest ratings in Asia (in descending order)
-	void rankByAsianRatings();
-	// Ranks the 100 movies with the highest ratings in Africa (in descending order)
-	void rankByAfricanRatings();
-	// Ranks the 100 movies with the highest ratings in Australia (in descending order)
-	void rankByAustralianRatings();
 };

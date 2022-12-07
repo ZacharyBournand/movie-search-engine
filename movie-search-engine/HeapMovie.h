@@ -29,13 +29,8 @@ public:
 		string country,
 		int title_year,
 		double imdb_score,
-		int id,
-		double north_america_users_score,
-		double south_america_users_score,
-		double europe_users_score,
-		double asia_users_score,
-		double africa_users_score,
-		double australia_users_score);
+		int id
+	);
 
 	void insertHelper(NodeHeapMovie* object);
 	// Displays the information of the movie searched for

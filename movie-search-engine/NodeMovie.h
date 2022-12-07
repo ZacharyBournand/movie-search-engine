@@ -22,14 +22,8 @@ public:
     int TitleYear;
     double ImdbScore;
     int Id;
-    double NorthAmericaUsersScore;
-    double SouthAmericaUsersScore;
-    double EuropeUsersScore;
-    double AsiaUsersScore;
-    double AfricaUsersScore;
-    double AustraliaUsersScore;
 
     NodeMovie* next;
     // Constructor
-    NodeMovie(string, int, string, string, string, string, int, string, string, int, string, string, int, double, int, double, double, double, double, double, double);
+    NodeMovie(string, int, string, string, string, string, int, string, string, int, string, string, int, double, int);
 };

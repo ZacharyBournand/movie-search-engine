@@ -25,13 +25,7 @@ NodeHeapMovie::NodeHeapMovie(
 	string country,
 	int title_year,
 	double imdb_score,
-	int id,
-	double north_america_users_score,
-	double south_america_users_score,
-	double europe_users_score,
-	double asia_users_score,
-	double africa_users_score,
-	double australia_users_score
+	int id
 ) {
 	DirectorName = director_name;
 	Duration = duration;
@@ -48,11 +42,4 @@ NodeHeapMovie::NodeHeapMovie(
 	TitleYear = title_year;
 	ImdbScore = imdb_score;
 	Id = id;
-	NorthAmericaUsersScore = north_america_users_score;
-	SouthAmericaUsersScore = south_america_users_score;
-	EuropeUsersScore = europe_users_score;
-	AsiaUsersScore = asia_users_score;
-	AfricaUsersScore = africa_users_score;
-	AustraliaUsersScore = australia_users_score;
-	
 }

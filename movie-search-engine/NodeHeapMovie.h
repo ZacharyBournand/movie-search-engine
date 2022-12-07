@@ -21,16 +21,10 @@ struct NodeHeapMovie
     int TitleYear;
     double ImdbScore;
     int Id;
-    double NorthAmericaUsersScore;
-    double SouthAmericaUsersScore;
-    double EuropeUsersScore;
-    double AsiaUsersScore;
-    double AfricaUsersScore;
-    double AustraliaUsersScore;
 
     //every node(movie) will have a left and a right pointer, also will have a key and a value
     
     // Constructor
     NodeHeapMovie();
-    NodeHeapMovie(string, int, string, string, string, string, int, string, string, int, string, string, int, double, int, double, double, double, double, double, double);
+    NodeHeapMovie(string, int, string, string, string, string, int, string, string, int, string, string, int, double, int);
 };

@@ -33,13 +33,8 @@ void HeapMovie::insert(string director_name,
 	string country,
 	int title_year,
 	double imdb_score,
-	int id,
-	double north_america_users_score,
-	double south_america_users_score,
-	double europe_users_score,
-	double asia_users_score,
-	double africa_users_score,
-	double australia_users_score)
+	int id
+)
 {
 	NodeHeapMovie* newNode = new NodeHeapMovie(
 		director_name,
@@ -56,13 +51,8 @@ void HeapMovie::insert(string director_name,
 		country,
 		title_year,
 		imdb_score,
-		id,
-		north_america_users_score,
-		south_america_users_score,
-		europe_users_score,
-		asia_users_score,
-		africa_users_score,
-		australia_users_score);
+		id
+	);
 
 	insertHelper(newNode);
 }

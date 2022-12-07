@@ -69,7 +69,6 @@ public:
 		// Get the user's input
 
 		getline(cin, input);
-		auto start = chrono::steady_clock::now();
 
 		// Get the start time
 		auto start = chrono::steady_clock::now();

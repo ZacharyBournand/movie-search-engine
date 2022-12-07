@@ -103,5 +103,5 @@ void LinkedListUserRating::searchMovieUserRatings() {
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
