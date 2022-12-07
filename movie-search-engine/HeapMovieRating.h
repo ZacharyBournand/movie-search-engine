@@ -68,6 +68,9 @@ public:
 		// Get the user's input
 		getline(cin, input);
 
+		// Get the start time
+		auto start = chrono::steady_clock::now();
+
 		bool found = false;
 
 		for (int i = 0; i < input.length(); i++)

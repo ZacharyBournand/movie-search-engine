@@ -2,20 +2,20 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "LinkedListMovie.h"
-#include "NodeMovie.h"
-#include "LinkedListUserRating.h"
-#include "NodeUserRating.h"
-//#include "HeapMovie.h"
-//#include "NodeHeapMovie.h"
+//#include "LinkedListMovie.h"
+//#include "NodeMovie.h"
+//#include "LinkedListUserRating.h"
+//#include "NodeUserRating.h"
+#include "HeapMovie.h"
+#include "NodeHeapMovie.h"
 //#include "HeapMovieRating.h"
 //#include "NodeHeapMovieRating.h"
-#include "Graph.h"
-#include "Node.h"
+//#include "Graph.h"
+//#include "Node.h"
 
 using namespace std;
 
-int main()
+/*int main()
 {
     // Create an instance of the linked list that contains movies and information associated to them
     //test change
@@ -339,7 +339,7 @@ int main()
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-}
+}*/
 
 
 /******************************************************************************************************************/
@@ -352,7 +352,7 @@ int main()
 /******************************************************************************************************************/
 
 
-    /*int main()
+    int main()
     {
 
     HeapMovie movies;
@@ -497,7 +497,7 @@ int main()
         }
     }
 
-    HeapMovieRating userRating;
+    /*HeapMovieRating userRating;
 
     int UserId;
     string MovieName;
@@ -545,10 +545,10 @@ int main()
 
             line2 = "";
         }
-    }
+    }*/
 
 
-string inputString;
+    string inputString;
     string inputString2;
 
     cout << "Welcome to the Movie Search Engine!" << endl;
@@ -630,10 +630,10 @@ string inputString;
                 // Ranks the 100 movies with the greatest number of votes (in descending order)
                 //movies.rankByVotes();
                 //break;
-            case 18:
-                // Ranks the 100 movies with the highest IMDb ratings (in descending order)
-                userRating.searchMovieUserRatings();
-                break;
+            //case 18:
+            //    // Ranks the 100 movies with the highest IMDb ratings (in descending order)
+            //    userRating.searchMovieUserRatings();
+            //    break;
             default:
                 cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
         }
@@ -644,7 +644,7 @@ string inputString;
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-   }*/
+   }
 
 
    /******************************************************************************************************************/
@@ -745,6 +745,6 @@ string inputString;
     } while (inputString2 == "Yes" || inputString2 == "yes");
 
     return 0;
-}
+}*/
 
     
