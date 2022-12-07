@@ -3,6 +3,8 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <chrono>
+#include <cmath>
 #include "LinkedListMovie.h"
 #include "NodeMovie.h"
 using namespace std;
@@ -83,6 +85,9 @@ void LinkedListMovie::searchMovieTitle() {
 	// Get the user's input
 	getline(cin, input);
 
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Traverse through the list to find the movie searched for
 	while (temporaryNode != nullptr) {
 		correctInput = false;
@@ -123,6 +128,15 @@ void LinkedListMovie::searchMovieTitle() {
 	if (correctInput == false) {
 		std::cout << "Movie not found :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies in the genre searched for
@@ -134,6 +148,9 @@ void LinkedListMovie::searchByGenre() {
 
 	std::cout << "Enter the genre: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the input to lowercase
 	for (int i = 0; i < input.length(); i++) {
@@ -170,6 +187,15 @@ void LinkedListMovie::searchByGenre() {
 	if (movieFound == false) {
 		std::cout << "No movies found in this genre :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies made by a specific director searched for
@@ -181,6 +207,9 @@ void LinkedListMovie::searchByDirector() {
 
 	std::cout << "Enter the director: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the input to lowercase
 	for (int i = 0; i < input.length(); i++) {
@@ -215,6 +244,15 @@ void LinkedListMovie::searchByDirector() {
 	if (movieFound == false) {
 		std::cout << "No movies found that are made by this director :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies in the duration range searched for (in ascending order)
@@ -258,6 +296,9 @@ void LinkedListMovie::searchByDuration() {
 
 	std::cout << "Enter the maximum movie duration (in minutes): " << endl;
 	getline(cin, inputMaxDuration);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the minimum and maximum durations to strings
 	int minDuration = stoi(inputMinDuration);
@@ -418,6 +459,15 @@ void LinkedListMovie::searchByDuration() {
 	if (movieFound == false) {
 		std::cout << "No movies found in this duration range :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 // Displays the movies with the actor searched for
@@ -430,6 +480,9 @@ void LinkedListMovie::searchByActor() {
 	// Get the user's input
 	std::cout << "Enter the actor/actress: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the input to lowercase
 	for (int i = 0; i < input.length(); i++) {
@@ -471,6 +524,15 @@ void LinkedListMovie::searchByActor() {
 	if (movieFound == false) {
 		std::cout << "No movies found with this actor/actress :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies with the language searched for
@@ -484,6 +546,9 @@ void LinkedListMovie::searchByLanguage() {
 
 	std::cout << "Enter the language: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the input to lowercase
 	for (int i = 0; i < input.length(); i++) {
@@ -517,6 +582,15 @@ void LinkedListMovie::searchByLanguage() {
 	if (movieFound == false) {
 		std::cout << "No movies found in this language :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies that come from the country searched for
@@ -528,6 +602,9 @@ void LinkedListMovie::searchByCountry() {
 
 	std::cout << "Enter the country of origin: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the input to lowercase
 	for (int i = 0; i < input.length(); i++) {
@@ -571,6 +648,15 @@ void LinkedListMovie::searchByCountry() {
 	if (movieFound == false) {
 		std::cout << "No movies found that come from this country :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 // Displays the movies that were released in the year range searched for (in ascending order)
@@ -587,6 +673,9 @@ void LinkedListMovie::searchByYear() {
 
 	std::cout << "Enter the most recent release date (in year): " << endl;
 	getline(cin, inputMaxDuration);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the inputs to strings
 	int minDuration = stoi(inputMinDuration);
@@ -772,9 +861,21 @@ void LinkedListMovie::searchByYear() {
 	if (movieFound == false) {
 		std::cout << "No movies found in this duration range :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByNumberOfReviews() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -966,9 +1067,21 @@ void LinkedListMovie::rankByNumberOfReviews() {
 		rank++;
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByVotes() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -1160,9 +1273,21 @@ void LinkedListMovie::rankByVotes() {
 		rank++;
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByImdb() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -1337,9 +1462,21 @@ void LinkedListMovie::rankByImdb() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByNorthAmericanRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -1515,9 +1652,21 @@ void LinkedListMovie::rankByNorthAmericanRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankBySouthAmericanRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -1691,9 +1840,21 @@ void LinkedListMovie::rankBySouthAmericanRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByEuropeanRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -1867,9 +2028,21 @@ void LinkedListMovie::rankByEuropeanRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByAsianRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -2043,9 +2216,21 @@ void LinkedListMovie::rankByAsianRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByAfricanRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -2219,9 +2404,21 @@ void LinkedListMovie::rankByAfricanRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 void LinkedListMovie::rankByAustralianRatings() {
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Initialize the head node
 	NodeMovie* temporaryNode = head;
 
@@ -2395,4 +2592,13 @@ void LinkedListMovie::rankByAustralianRatings() {
 
 		temporaryNode = temporaryNode->next;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }

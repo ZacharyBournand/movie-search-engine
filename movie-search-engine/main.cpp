@@ -2,20 +2,21 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-//#include "LinkedListMovie.h"
-//#include "NodeMovie.h"
-//#include "LinkedListUserRating.h"
-//#include "NodeUserRating.h"
+#include "LinkedListMovie.h"
+#include "NodeMovie.h"
+#include "LinkedListUserRating.h"
+#include "NodeUserRating.h"
 //#include "HeapMovie.h"
 //#include "NodeHeapMovie.h"
 //#include "HeapMovieRating.h"
 //#include "NodeHeapMovieRating.h"
-#include "HashMap.h"
-#include "HashNode.h"
+//#include "HashMap.h"
+//#include "HashNode.h"
+#include <chrono>
 
 using namespace std;
 
-/*int main()
+int main()
 {
     // Create an instance of the linked list that contains movies and information associated to them
     //test change
@@ -339,7 +340,7 @@ using namespace std;
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-}*/
+}
 
 
 /******************************************************************************************************************/
@@ -657,7 +658,7 @@ string inputString;
 /******************************************************************************************************************/
 
 
-int main()
+/*int main()
 {
     HashMap userRating;
 
@@ -746,5 +747,5 @@ int main()
 
     return 0;
 }
-
+*/
     

@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <cmath>
 #include "NodeHeapMovieRating.h"
 using namespace std;
 
@@ -31,6 +33,9 @@ public:
 
 	void insertHelper(NodeHeapMovieRating* object)
 	{
+		// Get the start time
+		auto start = chrono::steady_clock::now();
+
 		if (sizearray == 100000)
 		{
 			return;
@@ -91,5 +96,13 @@ public:
 		}
 	}
 
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 };
 

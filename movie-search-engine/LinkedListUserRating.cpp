@@ -3,10 +3,12 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <cmath>
 #include "LinkedListMovie.h"
 #include "LinkedListUserRating.h"
 #include "NodeMovie.h"
 #include "NodeUserRating.h"
+#include <chrono>
 using namespace std;
 
 // Constructor
@@ -57,6 +59,9 @@ void LinkedListUserRating::searchMovieUserRatings() {
 	// Get the user's input
 	getline(cin, input);
 
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	// Traverse through the list to find the movie searched for
 	while (temporaryNode != nullptr) {
 		correctInput = false;
@@ -90,4 +95,13 @@ void LinkedListUserRating::searchMovieUserRatings() {
 	if (ratingFound == false) {
 		std::cout << "No individual rating found for this movie :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }

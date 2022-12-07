@@ -8,6 +8,8 @@
 #include <vector>
 #include <queue>
 #include <cstdlib>
+#include <chrono>
+#include <cmath>
 using namespace std;
 
 HeapMovie::HeapMovie() 
@@ -110,6 +112,10 @@ void HeapMovie::searchMovieTitle()
 	string input;
 	std::cout << "Enter the movie title: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	string key;
 	bool yes = false;
 	for (int i = 0; i < input.length(); i++)
@@ -147,6 +153,14 @@ void HeapMovie::searchMovieTitle()
 		
 	}
 
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByGenre()
@@ -155,6 +169,10 @@ void HeapMovie::searchByGenre()
 	string input;
 	std::cout << "Enter the genre: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	string key;
 	bool found = false;
 	
@@ -192,12 +210,26 @@ void HeapMovie::searchByGenre()
 	{
 		std::cout << "No movies found in this genre :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
+
 void HeapMovie::searchByDirector()
 {
 	string input;
 	std::cout << "Enter the director name: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	string key;
 	bool found = false;
 
@@ -236,6 +268,14 @@ void HeapMovie::searchByDirector()
 		std::cout << "No movies found that are made by this director :(" << endl;
 	}
 
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByDuration()
@@ -251,6 +291,9 @@ void HeapMovie::searchByDuration()
 
 	std::cout << "Enter the maximum movie duration (in minutes): " << endl;
 	getline(cin, inputMaxDuration);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	minDuration = stoi(inputMinDuration);
 	maxDuration = stoi(inputMaxDuration);
@@ -297,6 +340,15 @@ void HeapMovie::searchByDuration()
 	{
 		std::cout << "No movies found in this duration range :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 
@@ -306,6 +358,10 @@ void HeapMovie::searchByActor()
 	string input;
 	std::cout << "Enter the actor/actress: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	bool found = false;
 
 	for (int i = 0; i < input.length(); i++)
@@ -347,6 +403,15 @@ void HeapMovie::searchByActor()
 	{
 		std::cout << "No movies found with this actor/actress :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByLanguage()
@@ -354,6 +419,10 @@ void HeapMovie::searchByLanguage()
 	string input;
 	std::cout << "Enter the language: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	string key;
 	bool found = false;
 	for (int i = 0; i < input.length(); i++)
@@ -391,6 +460,15 @@ void HeapMovie::searchByLanguage()
 	{
 		std::cout << "No movies found in this language :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByCountry()
@@ -398,6 +476,10 @@ void HeapMovie::searchByCountry()
 	string input;
 	std::cout << "Enter the country: " << endl;
 	getline(cin, input);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
+
 	string key;
 	bool found = false;
 
@@ -445,6 +527,15 @@ void HeapMovie::searchByCountry()
 	{
 		std::cout << "No movies found that come from this country :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByYear()
@@ -457,6 +548,9 @@ void HeapMovie::searchByYear()
 
 	std::cout << "Enter the most recent release date (in year): " << endl;
 	getline(cin, inputMaxDuration);
+
+	// Get the start time
+	auto start = chrono::steady_clock::now();
 
 	// Convert the inputs to strings
 	int minDuration = stoi(inputMinDuration);
@@ -486,5 +580,14 @@ void HeapMovie::searchByYear()
 	{
 		std::cout << "No movies found in this duration range :(" << endl;
 	}
+
+	// Get the end time
+	auto end = std::chrono::steady_clock::now();
+
+	// Find the difference
+	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
+
+	// Output the time 
+	cout << "Elapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
