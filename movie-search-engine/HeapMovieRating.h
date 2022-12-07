@@ -34,7 +34,7 @@ public:
 	void insertHelper(NodeHeapMovieRating* object)
 	{
 		// Get the start time
-		auto start = chrono::steady_clock::now();
+		
 
 		if (sizearray == 100000)
 		{
@@ -63,10 +63,13 @@ public:
 	// Displays individual user ratings of the movie searched for
 	void searchMovieUserRatings()
 	{
+
 		string input;
 		std::cout << "Enter the movie title: " << endl;
 		// Get the user's input
+
 		getline(cin, input);
+		auto start = chrono::steady_clock::now();
 
 		// Get the start time
 		auto start = chrono::steady_clock::now();
@@ -97,15 +100,17 @@ public:
 		{
 			std::cout << "No movies found in this genre :(" << endl;
 		}
+
+		// Get the end time
+		auto end = std::chrono::steady_clock::now();
+
+		// Find the difference
+		double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
+
+		// Output the time 
+		cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 	}
 
-	// Get the end time
-	auto end = std::chrono::steady_clock::now();
-
-	// Find the difference
-	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
-
-	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	
 };
 

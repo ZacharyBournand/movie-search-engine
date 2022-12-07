@@ -6,8 +6,8 @@
 //#include "NodeMovie.h"
 //#include "LinkedListUserRating.h"
 //#include "NodeUserRating.h"
-#include "HeapMovie.h"
-#include "NodeHeapMovie.h"
+//#include "HeapMovie.h"
+//#include "NodeHeapMovie.h"
 //#include "HeapMovieRating.h"
 //#include "NodeHeapMovieRating.h"
 //#include "Graph.h"
@@ -355,7 +355,7 @@ using namespace std;
     int main()
     {
 
-    HeapMovie movies;
+    /*HeapMovie movies;
 
     string DirectorName;
     int Duration;
@@ -495,7 +495,7 @@ using namespace std;
 
             line = "";
         }
-    }
+    }*/
 
     /*HeapMovieRating userRating;
 
@@ -587,41 +587,41 @@ using namespace std;
         int input = stoi(inputString);
 
         switch (input) {
-            case 0:
-                cout << "Ending the program" << endl;
-                break;
-            case 1:
+            //case 0:
+                //cout << "Ending the program" << endl;
+                //break;
+            //case 1:
                 // Displays the information of the movie searched for
-                movies.searchMovieTitle();
-                break;
-            case 2:
+                //movies.searchMovieTitle();
+                //break;
+           // case 2:
                 //Displays the movies in the genre searched for
-                movies.searchByGenre();
-                break;
-            case 3:
+                //movies.searchByGenre();
+                //break;
+            //case 3:
                  //Displays the movies made by a specific director searched for
-                movies.searchByDirector();
-                break;
-           case 4:
+               // movies.searchByDirector();
+                //break;
+           //case 4:
                 // Displays the movies in the duration range searched for (in ascending order)
-                movies.searchByDuration();
-                break;
-            case 5:
+                //movies.searchByDuration();
+                //break;
+            //case 5:
                 // Displays the movies with the actor searched for
-                movies.searchByActor();
-               break;
-            case 6:
+                //movies.searchByActor();
+              // break;
+           // case 6:
                 // Displays the movies with the language searched for
-                movies.searchByLanguage();
-               break;
-           case 7:
+               // movies.searchByLanguage();
+              // break;
+          // case 7:
                 // Displays the movies that come from the country searched for
-                movies.searchByCountry();
-                break;
-            case 8:
+                //movies.searchByCountry();
+                //break;
+           // case 8:
                 // Displays the movies that were released in the year range searched for (in ascending order)
-                movies.searchByYear();
-                break;
+                //movies.searchByYear();
+                //break;
             //case 9:
                 // Ranks the 100 movies with the greatest number of reviews (in descending order)
                 //movies.rankByNumberOfReviews();
@@ -630,10 +630,10 @@ using namespace std;
                 // Ranks the 100 movies with the greatest number of votes (in descending order)
                 //movies.rankByVotes();
                 //break;
-            //case 18:
-            //    // Ranks the 100 movies with the highest IMDb ratings (in descending order)
-            //    userRating.searchMovieUserRatings();
-            //    break;
+            //case 9:
+                // Ranks the 100 movies with the highest IMDb ratings (in descending order)
+                //userRating.searchMovieUserRatings();
+                //break;
             default:
                 cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
         }
@@ -657,7 +657,7 @@ using namespace std;
 /******************************************************************************************************************/
 
 
-/*int main()
+int main()
 {
     Graph userRating;
 
