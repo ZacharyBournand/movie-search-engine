@@ -2,10 +2,10 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "LinkedListMovie.h"
-#include "NodeMovie.h"
-#include "LinkedListUserRating.h"
-#include "NodeUserRating.h"
+//#include "LinkedListMovie.h"
+//#include "NodeMovie.h"
+//#include "LinkedListUserRating.h"
+//#include "NodeUserRating.h"
 //#include "HeapMovie.h"
 //#include "NodeHeapMovie.h"
 //#include "HeapMovieRating.h"
@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int main()
+/*int main()
 {
     // Create an instance of the linked list that contains movies and information associated to them
     //test change
@@ -339,7 +339,7 @@ int main()
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
-}
+}*/
 
 
 /******************************************************************************************************************/
@@ -352,10 +352,10 @@ int main()
 /******************************************************************************************************************/
 
 
-    /*int main()
-    {
+    //int main()
+    //{
 
-    HeapMovie movies;
+    /*HeapMovie movies;
 
     string DirectorName;
     int Duration;
@@ -495,9 +495,9 @@ int main()
 
             line = "";
         }
-    }
+    }*/
 
-    HeapMovieRating userRating;
+    /*HeapMovieRating userRating;
 
     int UserId;
     string MovieName;
@@ -587,41 +587,41 @@ string inputString;
         int input = stoi(inputString);
 
         switch (input) {
-            case 0:
-                cout << "Ending the program" << endl;
-                break;
-            case 1:
+            //case 0:
+                //cout << "Ending the program" << endl;
+                //break;
+            //case 1:
                 // Displays the information of the movie searched for
-                movies.searchMovieTitle();
-                break;
-            case 2:
+                //movies.searchMovieTitle();
+                //break;
+           // case 2:
                 //Displays the movies in the genre searched for
-                movies.searchByGenre();
-                break;
-            case 3:
+                //movies.searchByGenre();
+                //break;
+            //case 3:
                  //Displays the movies made by a specific director searched for
-                movies.searchByDirector();
-                break;
-           case 4:
+               // movies.searchByDirector();
+                //break;
+           //case 4:
                 // Displays the movies in the duration range searched for (in ascending order)
-                movies.searchByDuration();
-                break;
-            case 5:
+                //movies.searchByDuration();
+                //break;
+            //case 5:
                 // Displays the movies with the actor searched for
-                movies.searchByActor();
-               break;
-            case 6:
+                //movies.searchByActor();
+              // break;
+           // case 6:
                 // Displays the movies with the language searched for
-                movies.searchByLanguage();
-               break;
-           case 7:
+               // movies.searchByLanguage();
+              // break;
+          // case 7:
                 // Displays the movies that come from the country searched for
-                movies.searchByCountry();
-                break;
-            case 8:
+                //movies.searchByCountry();
+                //break;
+           // case 8:
                 // Displays the movies that were released in the year range searched for (in ascending order)
-                movies.searchByYear();
-                break;
+                //movies.searchByYear();
+                //break;
             //case 9:
                 // Ranks the 100 movies with the greatest number of reviews (in descending order)
                 //movies.rankByNumberOfReviews();
@@ -630,10 +630,10 @@ string inputString;
                 // Ranks the 100 movies with the greatest number of votes (in descending order)
                 //movies.rankByVotes();
                 //break;
-            case 18:
+            //case 9:
                 // Ranks the 100 movies with the highest IMDb ratings (in descending order)
-                userRating.searchMovieUserRatings();
-                break;
+                //userRating.searchMovieUserRatings();
+                //break;
             default:
                 cout << "You entered an incorrect value. Please re-enter a correct value:" << endl;
         }
@@ -644,6 +644,8 @@ string inputString;
         getline(cin, inputString2);
 
     } while (inputString2 == "Yes" || inputString2 == "yes");
+
+    return 0;
    }*/
 
 
@@ -657,7 +659,7 @@ string inputString;
 /******************************************************************************************************************/
 
 
-/*int main()
+int main()
 {
     Graph userRating;
 
