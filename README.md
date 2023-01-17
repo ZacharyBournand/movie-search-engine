@@ -4,29 +4,29 @@ To perform the search, the user selects a data structure that carries out the Mo
 
 Each data structure has a specific amount of search filters available:
  - Linked list
- *  Search for a specific movie title
- *  Search for movies of a specific genre
- *  Search for movies led by a specific director
- *  Search for movies in a specified duration range
- *  Search for movies that features a specific actor/actress
- *  Search for movies made in a specific language
- *  Search for movies that originate from a specific country
- *  Search for movies released in between in specific range (in year)
- *  Search for the 100 movies with the greatest number of reviews
- *  Search for the 100 movies with the greatest number of votes
- *  Search for the 100 movies with the highest IMDb ratings
- * Search for a movie's list of individual user ratings
+  * Search for a specific movie title
+  * Search for movies of a specific genre
+  * Search for movies led by a specific director
+  * Search for movies in a specified duration range
+  * Search for movies that features a specific actor/actress
+  * Search for movies made in a specific language
+  * Search for movies that originate from a specific country
+  * Search for movies released in between in specific range (in year)
+  * Search for the 100 movies with the greatest number of reviews
+  * Search for the 100 movies with the greatest number of votes
+  * Search for the 100 movies with the highest IMDb ratings
+  * Search for a movie's list of individual user ratings
  
 
 - Min heap
- *  Search for a specific movie title
- *  Search for movies of a specific genre
- *  Search for movies led by a specific director
- *  Search for movies in a specified duration range
- *  Search for movies that features a specific actor/actress
- *  Search for movies made in a specific language
- *  Search for movies that originate from a specific country
- *  Search for movies released in between in specific range (in year)
+  * Search for a specific movie title
+  * Search for movies of a specific genre
+  * Search for movies led by a specific director
+  * Search for movies in a specified duration range
+  * Search for movies that features a specific actor/actress
+  * Search for movies made in a specific language
+  * Search for movies that originate from a specific country
+  * Search for movies released in between in specific range (in year)
   * Search for a movie's list of individual user ratings
 
 
