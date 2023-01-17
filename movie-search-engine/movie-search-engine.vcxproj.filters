@@ -28,6 +28,9 @@
     <Filter Include="SourceFiles\GraphRating">
       <UniqueIdentifier>{218b49d6-b1ef-4afb-984f-1ed36c3776c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SourceFiles\Searches">
+      <UniqueIdentifier>{7b8547fc-5193-463f-acfc-014b75970d60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +53,18 @@
     </ClCompile>
     <ClCompile Include="NodeHeapMovie.cpp">
       <Filter>SourceFiles\HeapMovie</Filter>
+    </ClCompile>
+    <ClCompile Include="graphSearch.cpp">
+      <Filter>SourceFiles\Searches</Filter>
+    </ClCompile>
+    <ClCompile Include="linkedListSearch.cpp">
+      <Filter>SourceFiles\Searches</Filter>
+    </ClCompile>
+    <ClCompile Include="minHeapMovieSearch.cpp">
+      <Filter>SourceFiles\Searches</Filter>
+    </ClCompile>
+    <ClCompile Include="minHeapUserRatingsSearch.cpp">
+      <Filter>SourceFiles\Searches</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

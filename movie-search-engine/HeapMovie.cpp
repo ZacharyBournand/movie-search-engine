@@ -150,7 +150,7 @@ void HeapMovie::searchMovieTitle()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByGenre()
@@ -208,7 +208,7 @@ void HeapMovie::searchByGenre()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByDirector()
@@ -265,7 +265,7 @@ void HeapMovie::searchByDirector()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByDuration()
@@ -338,7 +338,7 @@ void HeapMovie::searchByDuration()
 	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 
 
@@ -401,7 +401,7 @@ void HeapMovie::searchByActor()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByLanguage()
@@ -458,7 +458,7 @@ void HeapMovie::searchByLanguage()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByCountry()
@@ -525,7 +525,7 @@ void HeapMovie::searchByCountry()
 	double timeElapsed = double(chrono::duration_cast <chrono::microseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 6) << " microseconds" << endl;
 }
 
 void HeapMovie::searchByYear()
@@ -578,6 +578,6 @@ void HeapMovie::searchByYear()
 	double timeElapsed = double(chrono::duration_cast <chrono::milliseconds> (end - start).count());
 
 	// Output the time 
-	cout << "Elapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
+	cout << "\nElapsed time: " << timeElapsed / pow(1, 3) << " milliseconds" << endl;
 }
 

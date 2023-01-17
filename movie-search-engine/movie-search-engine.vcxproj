@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graphSearch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="HeapMovie.cpp" />
     <ClCompile Include="NodeHeapMovie.cpp" />
@@ -146,6 +147,9 @@
     <ClCompile Include="LinkedListMovie.cpp" />
     <ClCompile Include="LinkedListUserRating.cpp" />
     <ClCompile Include="NodeUserRating.cpp" />
+    <ClCompile Include="linkedListSearch.cpp" />
+    <ClCompile Include="minHeapMovieSearch.cpp" />
+    <ClCompile Include="minHeapUserRatingsSearch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h" />
