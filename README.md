@@ -4,7 +4,7 @@ To perform the search, the user selects a data structure that carries out the Mo
 
 Each data structure has a specific amount of search filters available:
  - Linked list
-  * Search for a specific movie title
+  ** Search for a specific movie title
   * Search for movies of a specific genre
   * Search for movies led by a specific director
   * Search for movies in a specified duration range
