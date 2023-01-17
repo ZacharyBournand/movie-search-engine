@@ -8,7 +8,7 @@ Each data structure has a specific amount of search filters available:
   * Search for movies of a specific genre
   * Search for movies led by a specific director
   * Search for movies in a specified duration range
-  * Search for movies that features a specific actor/actress
+  * Search for movies that feature a specific actor/actress
   * Search for movies made in a specific language
   * Search for movies that originate from a specific country
   * Search for movies released in between in specific range (in year)
@@ -22,7 +22,7 @@ Each data structure has a specific amount of search filters available:
   * Search for movies of a specific genre
   * Search for movies led by a specific director
   * Search for movies in a specified duration range
-  * Search for movies that features a specific actor/actress
+  * Search for movies that feature a specific actor/actress
   * Search for movies made in a specific language
   * Search for movies that originate from a specific country
   * Search for movies released in between in specific range (in year)
@@ -31,4 +31,4 @@ Each data structure has a specific amount of search filters available:
 - Graph
   * Search for a movie's list of individual user ratings
   
-The Movie Search Engine is accessible via the console. To do so, you clone the repository, open the project by double clicking on the solution file (.sln), then run the program.
+The Movie Search Engine is accessible via the console. To do so, you clone the repository, open the project by double-clicking on the solution file (.sln), then run the program.
