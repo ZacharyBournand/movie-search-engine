@@ -31,4 +31,4 @@ Each data structure has a specific amount of search filters available:
 - Graph
   * Search for a movie's list of individual user ratings
   
-The user uses the Movie Search Engine via the console. To do so, you clone the repository, open the project by double clicking on the solution file (.sln), then run the program.
+The Movie Search Engine is accessible via the console. To do so, you clone the repository, open the project by double clicking on the solution file (.sln), then run the program.
