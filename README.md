@@ -16,7 +16,6 @@ Each data structure has a specific amount of search filters available:
   * Search for the 100 movies with the greatest number of votes
   * Search for the 100 movies with the highest IMDb ratings
   * Search for a movie's list of individual user ratings
- 
 
 - Min heap
   * Search for a specific movie title
@@ -28,7 +27,6 @@ Each data structure has a specific amount of search filters available:
   * Search for movies that originate from a specific country
   * Search for movies released in between in specific range (in year)
   * Search for a movie's list of individual user ratings
-
 
 - Graph
   * Search for a movie's list of individual user ratings
