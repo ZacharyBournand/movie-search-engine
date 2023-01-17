@@ -3,7 +3,7 @@ The user can search through a catalog of over 4,850 movies to find a specific mo
 To perform the search, the user selects a data structure that carries out the Movie Search Engine's functionalities. 
 
 Each data structure has a specific amount of search filters available:
- - Linked list
+- Linked list
   * Search for a specific movie title
   * Search for movies of a specific genre
   * Search for movies led by a specific director
@@ -33,4 +33,4 @@ Each data structure has a specific amount of search filters available:
 - Graph
   * Search for a movie's list of individual user ratings
   
-  The user uses the Movie Search Engine via the console. To do so, you clone the repository, open the project by double clicking on the solution file (.sln), then run the program.
+The user uses the Movie Search Engine via the console. To do so, you clone the repository, open the project by double clicking on the solution file (.sln), then run the program.
