@@ -2,7 +2,7 @@
 The user can search through a catalog of over 4,850 movies to find a specific movie, films of a specific genre, a movie's ratings, etc.
 To perform the search, done via the console, the user selects a data structure that carries out the Movie Search Engine's functionalities. 
 
-Each data structure has a specific amount of search filters available:
+Each data structure has a specific amount of search filter options available:
 - Linked list
   * Search for a specific movie title
   * Search for movies of a specific genre
