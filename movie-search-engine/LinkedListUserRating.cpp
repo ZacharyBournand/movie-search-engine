@@ -78,7 +78,7 @@ void LinkedListUserRating::searchMovieUserRatings() {
 			}
 		}
 
-		// If the inut matches the movie title, display the movie's individual user ratings
+		// If the input matches the movie title, display the movie's individual user ratings
 		if (correctInput == true) {
 			std::cout << endl;
 			std::cout << "User ID: " << temporaryNode->UserId << endl;
